@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kad Kahwin Digital</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            background: #000;
+        }
+
+        /* SCENE 1 - WINDOW */
+        #scene1 {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to top, #1a1a1a, #3d2c1e);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .window {
+            width: 250px;
+            height: 350px;
+            background: #5c3b1e;
+            border: 10px solid #3a2412;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 0 30px rgba(255, 200, 150, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .window:hover {
+            transform: scale(1.05);
+        }
+
+        .window::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.imgur.com/8Km9tLL.jpg') center/cover;
+            opacity: 0.7;
+        }
+
+        .tap-text {
+            position: absolute;
+            bottom: -40px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        /* SCENE 2 - CARD */
+        #scene2 {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to bottom, #fff7f0, #ffe3d3);
+            overflow-y: auto;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .card {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .names {
+            font-size: 22px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .details {
+            font-size: 16px;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .flower {
+            width: 80px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SCENE 1 -->
+    <div id="scene1">
+        <div class="window" onclick="openCard()">
+            <div class="tap-text">Tap tingkap untuk buka 💍</div>
+        </div>
+    </div>
+
+    <!-- SCENE 2 -->
+    <div id="scene2">
+        <div class="card">
+            <img class="flower" src="https://i.imgur.com/O7MZ9bH.png" />
+            <div class="title">Undangan Perkahwinan</div>
+            <div class="names">Aiman & Sofia</div>
+            <div class="details">
+                Dengan penuh kesyukuran,<br>
+                kami menjemput anda ke majlis perkahwinan kami.<br><br>
+
+                📅 25 Disember 2026<br>
+                📍 Kuala Terengganu<br>
+                ⏰ 11:00 pagi - 4:00 petang
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openCard() {
+            document.getElementById("scene1").style.display = "none";
+            document.getElementById("scene2").style.display = "block";
+        }
+    </script>
+
+</body>
+
+</html>
