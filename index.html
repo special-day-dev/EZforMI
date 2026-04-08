@@ -12,9 +12,6 @@
         rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <style>
-        /* ═══════════════════════════════════════
-   TOKENS
-═══════════════════════════════════════ */
         :root {
             --ink: #0d0a07;
             --velvet: #120e0a;
@@ -25,8 +22,8 @@
             --gold-lt: #e2c98a;
             --gold-dk: #8c6e3f;
             --champagne: #f5e6c8;
-            --muted: rgba(245, 230, 200, .5);
-            --dimmed: rgba(245, 230, 200, .25);
+            --muted: rgba(245, 230, 200, .65);
+            --dimmed: rgba(245, 230, 200, .35);
             --border: rgba(200, 169, 110, .18);
             --border-h: rgba(200, 169, 110, .38);
             --serif: 'Cormorant Garamond', Georgia, serif;
@@ -38,7 +35,6 @@
             --r-md: 20px;
             --r-lg: 28px;
             --r-xl: 36px;
-            /* Safe area for notch / home indicator */
             --safe-top: env(safe-area-inset-top, 0px);
             --safe-bottom: env(safe-area-inset-bottom, 0px);
         }
@@ -63,11 +59,9 @@
             font-family: var(--sans);
             font-weight: 300;
             overflow-x: hidden;
-            /* prevent pull-to-refresh on iOS */
             overscroll-behavior-y: contain;
         }
 
-        /* Noise texture */
         body::before {
             content: '';
             position: fixed;
@@ -78,7 +72,6 @@
             opacity: .4;
         }
 
-        /* Page wrapper - max mobile width */
         .page {
             max-width: 430px;
             margin: 0 auto;
@@ -86,10 +79,7 @@
             z-index: 2;
         }
 
-
-        /* ═══════════════════════════════════════
-   COVER SCREEN
-═══════════════════════════════════════ */
+        /* COVER */
         #cover {
             position: fixed;
             inset: 0;
@@ -111,7 +101,6 @@
             pointer-events: none;
         }
 
-        /* Subtle grid lines */
         .cover-lines {
             position: absolute;
             inset: 0;
@@ -121,7 +110,6 @@
                     rgba(200, 169, 110, .025) 55px, rgba(200, 169, 110, .025) 56px);
         }
 
-        /* Ornament SVG */
         .cover-ornament {
             width: min(200px, 50vw);
             margin-bottom: 2rem;
@@ -129,15 +117,8 @@
         }
 
         @keyframes floatY {
-
-            0%,
-            100% {
-                transform: translateY(0)
-            }
-
-            50% {
-                transform: translateY(-10px)
-            }
+            0%, 100% { transform: translateY(0) }
+            50% { transform: translateY(-10px) }
         }
 
         .cover-label {
@@ -173,7 +154,6 @@
             line-height: 1.9;
         }
 
-        /* Open button */
         .cover-btn {
             position: relative;
             background: transparent;
@@ -187,7 +167,6 @@
             text-transform: uppercase;
             cursor: pointer;
             overflow: hidden;
-            /* Big touch target */
             min-height: 52px;
             min-width: 180px;
             display: flex;
@@ -199,15 +178,8 @@
         }
 
         @keyframes btnPulse {
-
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 rgba(200, 169, 110, .3);
-            }
-
-            55% {
-                box-shadow: 0 0 0 14px rgba(200, 169, 110, 0);
-            }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(200, 169, 110, .3); }
+            55% { box-shadow: 0 0 0 14px rgba(200, 169, 110, 0); }
         }
 
         .cover-btn::before {
@@ -235,10 +207,7 @@
             z-index: 1;
         }
 
-
-        /* ═══════════════════════════════════════
-   SECTIONS — mobile scroll snap
-═══════════════════════════════════════ */
+        /* SECTIONS */
         .section {
             min-height: 100svh;
             display: flex;
@@ -258,7 +227,6 @@
             margin-bottom: 1.4rem;
         }
 
-        /* gold divider */
         .divider {
             display: flex;
             align-items: center;
@@ -281,10 +249,7 @@
             font-size: 1.2rem;
         }
 
-
-        /* ═══════════════════════════════════════
-   HERO
-═══════════════════════════════════════ */
+        /* HERO */
         #hero {
             background: radial-gradient(ellipse 100% 50% at 50% 110%, #2e2008 0%, var(--velvet) 65%);
             text-align: center;
@@ -349,7 +314,6 @@
             animation: fadeUp .9s var(--ease) .85s both;
         }
 
-        /* Ring ornament */
         .ring-wrap {
             width: min(230px, 60vw);
             height: min(230px, 60vw);
@@ -399,28 +363,14 @@
             z-index: 1;
         }
 
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(22px)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
+            from { opacity: 0; transform: translateY(22px) }
+            to { opacity: 1; transform: translateY(0) }
         }
 
-
-        /* ═══════════════════════════════════════
-   INVITATION
-═══════════════════════════════════════ */
+        /* INVITATION */
         #invitation {
             background: var(--panel);
             border-top: 1px solid var(--border);
@@ -493,10 +443,7 @@
             font-size: clamp(1.2rem, 5vw, 1.4rem);
         }
 
-
-        /* ═══════════════════════════════════════
-   EVENT DETAILS
-═══════════════════════════════════════ */
+        /* EVENT */
         #event {
             background: linear-gradient(160deg, var(--velvet) 0%, #1a120a 100%);
         }
@@ -516,13 +463,10 @@
             position: relative;
             overflow: hidden;
             transition: transform .25s var(--ease), box-shadow .25s;
-            /* active feedback on touch */
             -webkit-tap-highlight-color: transparent;
         }
 
-        .ev-tile:active {
-            transform: scale(.97);
-        }
+        .ev-tile:active { transform: scale(.97); }
 
         .ev-tile::after {
             content: '';
@@ -534,11 +478,7 @@
             background: linear-gradient(90deg, transparent, var(--gold-dk), transparent);
         }
 
-        .ev-icon {
-            font-size: 1.4rem;
-            display: block;
-            margin-bottom: .5rem;
-        }
+        .ev-icon { font-size: 1.4rem; display: block; margin-bottom: .5rem; }
 
         .ev-label {
             font-family: var(--caps);
@@ -557,11 +497,8 @@
             line-height: 1.55;
         }
 
-        .ev-tile.span2 {
-            grid-column: 1 / -1;
-        }
+        .ev-tile.span2 { grid-column: 1 / -1; }
 
-        /* Venue card */
         .venue-card {
             background: var(--card);
             border: 1px solid var(--border);
@@ -585,9 +522,7 @@
             display: block;
         }
 
-        .venue-body {
-            padding: 1.2rem 1.2rem .8rem;
-        }
+        .venue-body { padding: 1.2rem 1.2rem .8rem; }
 
         .venue-name {
             font-family: var(--serif);
@@ -636,10 +571,7 @@
             color: var(--velvet);
         }
 
-
-        /* ═══════════════════════════════════════
-   COUNTDOWN
-═══════════════════════════════════════ */
+        /* COUNTDOWN */
         #countdown {
             background: var(--panel);
             text-align: center;
@@ -707,17 +639,10 @@
             margin-top: .4rem;
         }
 
+        /* ATURCARA */
+        #aturcara { background: var(--velvet); }
 
-        /* ═══════════════════════════════════════
-   ATURCARA
-═══════════════════════════════════════ */
-        #aturcara {
-            background: var(--velvet);
-        }
-
-        .prog-list {
-            margin-top: 1.4rem;
-        }
+        .prog-list { margin-top: 1.4rem; }
 
         .prog-item {
             display: flex;
@@ -728,13 +653,8 @@
             transition: transform .2s var(--ease);
         }
 
-        .prog-item:active {
-            transform: translateX(5px);
-        }
-
-        .prog-item:last-child {
-            border-bottom: none;
-        }
+        .prog-item:active { transform: translateX(5px); }
+        .prog-item:last-child { border-bottom: none; }
 
         .prog-time {
             font-family: var(--caps);
@@ -769,10 +689,7 @@
             margin-top: .15rem;
         }
 
-
-        /* ═══════════════════════════════════════
-   DOA
-═══════════════════════════════════════ */
+        /* DOA */
         #doa {
             background: linear-gradient(160deg, #1a120a 0%, var(--velvet) 100%);
             text-align: center;
@@ -823,16 +740,14 @@
             margin-top: 1rem;
         }
 
-
-        /* ═══════════════════════════════════════
-   UCAPAN & RSVP  (tab-based)
-═══════════════════════════════════════ */
+        /* ═══════════════════════════════════
+           UCAPAN & RSVP — UPDATED
+        ═══════════════════════════════════ */
         #ucapan {
             background: var(--panel);
             border-top: 1px solid var(--border);
         }
 
-        /* Tab switcher */
         .tab-bar {
             display: flex;
             gap: .4rem;
@@ -870,60 +785,42 @@
             animation: fadeIn .3s var(--ease);
         }
 
-        .tab-pane.on {
-            display: block;
-        }
+        .tab-pane.on { display: block; }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0
-            }
-
-            to {
-                opacity: 1
-            }
+            from { opacity: 0 }
+            to { opacity: 1 }
         }
 
-        /* Messages feed */
+        /* Messages feed — FIXED */
         .msg-feed {
-            max-height: 270px;
+            max-height: 320px;
             overflow-y: auto;
             scrollbar-width: thin;
             scrollbar-color: var(--gold-dk) transparent;
             display: flex;
             flex-direction: column;
-            gap: .65rem;
-            margin-bottom: 1.2rem;
+            gap: .75rem;
+            margin-bottom: 1.4rem;
+            padding-right: 2px;
         }
 
-        .msg-feed::-webkit-scrollbar {
-            width: 2px;
-        }
-
-        .msg-feed::-webkit-scrollbar-thumb {
-            background: var(--gold-dk);
-        }
+        .msg-feed::-webkit-scrollbar { width: 3px; }
+        .msg-feed::-webkit-scrollbar-thumb { background: var(--gold-dk); border-radius: 2px; }
 
         .msg-card {
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: var(--r-md);
-            padding: .9rem 1.1rem;
+            padding: 1rem 1.2rem 1rem 1.4rem;
             position: relative;
             overflow: hidden;
             animation: slideIn .35s var(--spring) both;
         }
 
         @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(8px) scale(.97)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1)
-            }
+            from { opacity: 0; transform: translateY(8px) scale(.97) }
+            to { opacity: 1; transform: translateY(0) scale(1) }
         }
 
         .msg-card::before {
@@ -932,37 +829,43 @@
             left: 0;
             top: 0;
             bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--gold), transparent);
+            width: 3px;
+            background: linear-gradient(180deg, var(--gold), var(--gold-dk));
+            border-radius: 0 2px 2px 0;
         }
 
+        /* FIXED: nama pengucap */
         .msg-name {
             font-family: var(--caps);
-            font-size: .52rem;
+            font-size: .6rem;
             letter-spacing: .22em;
-            color: var(--gold);
-            margin-bottom: .3rem;
+            color: var(--gold-lt);
+            margin-bottom: .5rem;
+            display: block;
         }
 
+        /* FIXED: teks ucapan — warna lebih terang, font lebih besar */
         .msg-text {
             font-family: var(--serif);
-            font-style: italic;
-            font-size: clamp(.88rem, 3.5vw, 1rem);
-            color: var(--muted);
-            line-height: 1.7;
+            font-size: clamp(1rem, 4vw, 1.12rem);
+            color: var(--champagne);
+            line-height: 1.75;
+            font-style: normal;
+            word-break: break-word;
         }
 
         .msg-time {
             font-size: .68rem;
             color: var(--dimmed);
-            margin-top: .3rem;
+            margin-top: .5rem;
+            display: block;
         }
 
-        /* Stats row */
+        /* Stats row — FIXED */
         .stats-row {
             display: flex;
             gap: .6rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.4rem;
         }
 
         .stat-box {
@@ -970,15 +873,29 @@
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: var(--r-md);
-            padding: 1rem .5rem;
+            padding: 1.1rem .5rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-dk), transparent);
         }
 
         .stat-num {
             font-family: var(--serif);
-            font-size: clamp(1.5rem, 6vw, 1.9rem);
+            font-size: clamp(1.7rem, 6.5vw, 2rem);
             color: var(--gold-lt);
             display: block;
+            line-height: 1.1;
+            font-weight: 500;
         }
 
         .stat-lbl {
@@ -987,12 +904,12 @@
             letter-spacing: .2em;
             color: var(--gold-dk);
             text-transform: uppercase;
+            margin-top: .3rem;
+            display: block;
         }
 
         /* Forms */
-        .form-group {
-            margin-bottom: .9rem;
-        }
+        .form-group { margin-bottom: .9rem; }
 
         .form-label {
             font-family: var(--caps);
@@ -1013,12 +930,10 @@
             border-radius: var(--r-md);
             color: var(--champagne);
             font-family: var(--serif);
-            font-size: clamp(.95rem, 3.8vw, 1.05rem);
+            font-size: 16px;
             padding: .85rem 1rem;
             outline: none;
             transition: border-color .3s, box-shadow .3s;
-            /* large enough for iOS — no auto-zoom */
-            font-size: 16px;
             -webkit-appearance: none;
             appearance: none;
         }
@@ -1038,7 +953,7 @@
 
         .form-textarea {
             resize: vertical;
-            min-height: 85px;
+            min-height: 90px;
         }
 
         .form-select {
@@ -1109,7 +1024,6 @@
             margin-top: .8rem;
         }
 
-        /* Status text */
         .form-status {
             font-family: var(--serif);
             font-style: italic;
@@ -1120,19 +1034,11 @@
             transition: color .3s;
         }
 
-        .st-ok {
-            color: #6ee7a0;
-        }
+        .st-ok { color: #6ee7a0; }
+        .st-err { color: #f87171; }
+        .st-loading { color: var(--gold); }
 
-        .st-err {
-            color: #f87171;
-        }
-
-        .st-loading {
-            color: var(--gold);
-        }
-
-        /* RSVP option cards */
+        /* RSVP options — FIXED */
         .rsvp-opt {
             display: flex;
             align-items: center;
@@ -1140,10 +1046,10 @@
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: var(--r-md);
-            padding: 1.1rem 1.2rem;
-            margin-bottom: .7rem;
+            padding: 1.2rem 1.2rem;
+            margin-bottom: .8rem;
             cursor: pointer;
-            min-height: 62px;
+            min-height: 70px;
             transition: border-color .3s, background .3s;
             -webkit-tap-highlight-color: transparent;
         }
@@ -1163,27 +1069,23 @@
             background: rgba(248, 113, 113, .07);
         }
 
-        .rsvp-icon {
-            font-size: 1.6rem;
-            flex-shrink: 0;
-        }
+        .rsvp-icon { font-size: 1.8rem; flex-shrink: 0; }
 
+        /* FIXED: teks RSVP lebih jelas */
         .rsvp-text strong {
             font-family: var(--serif);
-            font-size: clamp(.95rem, 3.8vw, 1.05rem);
+            font-size: clamp(1rem, 4vw, 1.15rem);
             color: var(--champagne);
             display: block;
+            margin-bottom: .2rem;
         }
 
         .rsvp-text span {
-            font-size: clamp(.72rem, 2.8vw, .8rem);
+            font-size: clamp(.75rem, 3vw, .85rem);
             color: var(--muted);
         }
 
-
-        /* ═══════════════════════════════════════
-   MUSIC PLAYER
-═══════════════════════════════════════ */
+        /* MUSIC */
         #music-section {
             background: var(--velvet);
             border-top: 1px solid var(--border);
@@ -1210,9 +1112,7 @@
             box-shadow: 0 0 28px rgba(200, 169, 110, .25);
         }
 
-        .player-disc.spinning {
-            animation: spin 4s linear infinite;
-        }
+        .player-disc.spinning { animation: spin 4s linear infinite; }
 
         .player-title {
             font-family: var(--serif);
@@ -1276,14 +1176,9 @@
             color: var(--gold);
         }
 
-        audio {
-            display: none;
-        }
+        audio { display: none; }
 
-        /* Progress bar */
-        .progress-wrap {
-            margin: 1rem 0 .3rem;
-        }
+        .progress-wrap { margin: 1rem 0 .3rem; }
 
         .progress-bar {
             width: 100%;
@@ -1310,10 +1205,7 @@
             margin-top: .4rem;
         }
 
-
-        /* ═══════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════ */
+        /* FOOTER */
         .card-footer {
             background: var(--panel);
             border-top: 1px solid var(--border);
@@ -1337,10 +1229,7 @@
             color: var(--gold-dk);
         }
 
-
-        /* ═══════════════════════════════════════
-   BOTTOM NAV BAR
-═══════════════════════════════════════ */
+        /* NAVBAR */
         #navbar {
             position: fixed;
             bottom: 0;
@@ -1377,9 +1266,7 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        .nav-item i {
-            font-size: 1.3rem;
-        }
+        .nav-item i { font-size: 1.3rem; }
 
         .nav-lbl {
             font-family: var(--caps);
@@ -1396,10 +1283,7 @@
             border-radius: var(--r-sm);
         }
 
-
-        /* ═══════════════════════════════════════
-   MODAL SHEETS
-═══════════════════════════════════════ */
+        /* SHEETS */
         .scrim {
             position: fixed;
             inset: 0;
@@ -1412,10 +1296,7 @@
             transition: opacity .35s var(--ease), visibility .35s;
         }
 
-        .scrim.open {
-            opacity: 1;
-            visibility: visible;
-        }
+        .scrim.open { opacity: 1; visibility: visible; }
 
         .sheet {
             position: fixed;
@@ -1435,9 +1316,7 @@
             transition: transform .42s var(--spring);
         }
 
-        .sheet.open {
-            transform: translateX(-50%) translateY(0);
-        }
+        .sheet.open { transform: translateX(-50%) translateY(0); }
 
         .sheet-handle {
             width: 34px;
@@ -1455,7 +1334,6 @@
             margin-bottom: 1.2rem;
         }
 
-        /* Cal options */
         .cal-row {
             display: flex;
             align-items: center;
@@ -1476,10 +1354,7 @@
             background: rgba(200, 169, 110, .07);
         }
 
-        .cal-icon {
-            font-size: 1.5rem;
-            color: var(--gold);
-        }
+        .cal-icon { font-size: 1.5rem; color: var(--gold); }
 
         .cal-info strong {
             font-family: var(--caps);
@@ -1490,12 +1365,8 @@
             margin-bottom: .2rem;
         }
 
-        .cal-info span {
-            font-size: .78rem;
-            color: var(--muted);
-        }
+        .cal-info span { font-size: .78rem; color: var(--muted); }
 
-        /* Contact rows */
         .contact-row {
             display: flex;
             align-items: center;
@@ -1522,10 +1393,7 @@
             color: var(--gold-dk);
         }
 
-        .contact-btns {
-            display: flex;
-            gap: .5rem;
-        }
+        .contact-btns { display: flex; gap: .5rem; }
 
         .c-btn {
             width: 42px;
@@ -1588,31 +1456,13 @@
             transition: opacity .7s var(--ease), transform .7s var(--ease);
         }
 
-        .sr.vis {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .sr.vis { opacity: 1; transform: translateY(0); }
+        .d1 { transition-delay: .08s }
+        .d2 { transition-delay: .16s }
+        .d3 { transition-delay: .24s }
+        .d4 { transition-delay: .32s }
 
-        .d1 {
-            transition-delay: .08s
-        }
-
-        .d2 {
-            transition-delay: .16s
-        }
-
-        .d3 {
-            transition-delay: .24s
-        }
-
-        .d4 {
-            transition-delay: .32s
-        }
-
-        /* Bottom padding for navbar */
-        .last-section {
-            padding-bottom: calc(6rem + var(--safe-bottom));
-        }
+        .last-section { padding-bottom: calc(6rem + var(--safe-bottom)); }
     </style>
 </head>
 
@@ -1621,7 +1471,7 @@
     <div id="cursor"></div>
     <div id="cursor-ring"></div>
 
-    <!-- ═══════════ COVER ═══════════ -->
+    <!-- COVER -->
     <div id="cover">
         <div class="cover-lines"></div>
 
@@ -1655,7 +1505,7 @@
     </div>
 
 
-    <!-- ═══════════ PAGE ═══════════ -->
+    <!-- PAGE -->
     <div class="page" id="page" style="display:none">
 
         <!-- 1. HERO -->
@@ -1737,7 +1587,7 @@
         <section class="section" id="countdown">
             <p class="sec-label sr" style="text-align:center;">Detik Bahagia</p>
             <p class="cd-title sr d1">Menghitung Hari</p>
-            <p class="cd-sub   sr d2">Sehingga Majlis Bermula</p>
+            <p class="cd-sub sr d2">Sehingga Majlis Bermula</p>
             <div class="cd-grid sr d3">
                 <div class="cd-cell"><span class="cd-num" id="cd-d">0</span><span class="cd-lbl">Hari</span></div>
                 <div class="cd-cell"><span class="cd-num" id="cd-h">0</span><span class="cd-lbl">Jam</span></div>
@@ -1855,9 +1705,9 @@
             <!-- UCAPAN tab -->
             <div class="tab-pane on" id="pane-ucapan">
                 <div class="msg-feed" id="msg-feed">
-                    <div
-                        style="text-align:center;padding:1.2rem;font-family:var(--serif);font-style:italic;color:var(--muted);">
-                        Memuatkan ucapan…</div>
+                    <div style="text-align:center;padding:1.5rem;font-family:var(--serif);font-style:italic;color:var(--muted);font-size:1rem;">
+                        Memuatkan ucapan…
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Nama Anda</label>
@@ -1875,21 +1725,32 @@
             <!-- RSVP tab -->
             <div class="tab-pane" id="pane-rsvp">
                 <div class="stats-row sr">
-                    <div class="stat-box"><span class="stat-num" id="stat-total">—</span><span
-                            class="stat-lbl">Respons</span></div>
-                    <div class="stat-box"><span class="stat-num" id="stat-hadir">—</span><span
-                            class="stat-lbl">Hadir</span></div>
-                    <div class="stat-box"><span class="stat-num" id="stat-pax">—</span><span
-                            class="stat-lbl">Orang</span></div>
+                    <div class="stat-box">
+                        <span class="stat-num" id="stat-total">—</span>
+                        <span class="stat-lbl">Respons</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num" id="stat-hadir">—</span>
+                        <span class="stat-lbl">Hadir</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num" id="stat-pax">—</span>
+                        <span class="stat-lbl">Orang</span>
+                    </div>
                 </div>
 
                 <div class="rsvp-opt" id="opt-yes" onclick="selectRsvp('hadir')">
                     <span class="rsvp-icon">🌸</span>
-                    <div class="rsvp-text"><strong>Ya, Saya Hadir</strong><span>Insya-Allah hadir ke majlis</span></div>
+                    <div class="rsvp-text">
+                        <strong>Ya, Saya Hadir</strong>
+                        <span>Insya-Allah hadir ke majlis</span>
+                    </div>
                 </div>
                 <div class="rsvp-opt" id="opt-no" onclick="selectRsvp('tidak')">
                     <span class="rsvp-icon">🙏</span>
-                    <div class="rsvp-text"><strong>Tidak Dapat Hadir</strong><span>Doa restu tetap dipanjatkan</span>
+                    <div class="rsvp-text">
+                        <strong>Tidak Dapat Hadir</strong>
+                        <span>Doa restu tetap dipanjatkan</span>
                     </div>
                 </div>
 
@@ -1930,7 +1791,7 @@
     </div><!-- /page -->
 
 
-    <!-- ═══════════ NAVBAR ═══════════ -->
+    <!-- NAVBAR -->
     <nav id="navbar" style="display:none">
         <ul class="nav-list">
             <li class="nav-item" onclick="openSheet('cal-sheet')"><i class='bx bx-calendar-star'></i><span
@@ -1972,8 +1833,7 @@
                 style="width:100%;height:180px;border:none;filter:grayscale(.5) sepia(.2);display:block;"
                 allowfullscreen loading="lazy" title="Map"></iframe>
         </div>
-        <p
-            style="font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--champagne);margin-bottom:.3rem;">
+        <p style="font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--champagne);margin-bottom:.3rem;">
             Dewan Tengku Zara</p>
         <p style="font-size:.85rem;color:var(--muted);line-height:1.8;margin-bottom:1.2rem;">No 15, Jalan 15/23, Seksyen
             15<br>40200 Shah Alam, Selangor</p>
@@ -1990,37 +1850,29 @@
         <div class="contact-row">
             <div class="contact-info"><strong>Ahmad Ezam</strong><span>Pengantin Lelaki</span></div>
             <div class="contact-btns">
-                <button class="c-btn" onclick="call('+60123456789')" aria-label="Call"><i
-                        class='bx bx-phone'></i></button>
-                <button class="c-btn wa" onclick="wa('+60123456789')" aria-label="WhatsApp"><i
-                        class='bx bxl-whatsapp'></i></button>
+                <button class="c-btn" onclick="call('+60123456789')" aria-label="Call"><i class='bx bx-phone'></i></button>
+                <button class="c-btn wa" onclick="wa('+60123456789')" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></button>
             </div>
         </div>
         <div class="contact-row">
             <div class="contact-info"><strong>Aimi Khairiyah</strong><span>Pengantin Perempuan</span></div>
             <div class="contact-btns">
-                <button class="c-btn" onclick="call('+60111222333')" aria-label="Call"><i
-                        class='bx bx-phone'></i></button>
-                <button class="c-btn wa" onclick="wa('+60111222333')" aria-label="WhatsApp"><i
-                        class='bx bxl-whatsapp'></i></button>
+                <button class="c-btn" onclick="call('+60111222333')" aria-label="Call"><i class='bx bx-phone'></i></button>
+                <button class="c-btn wa" onclick="wa('+60111222333')" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></button>
             </div>
         </div>
         <div class="contact-row">
             <div class="contact-info"><strong>Haji Mazlan</strong><span>Bapa Pengantin Lelaki</span></div>
             <div class="contact-btns">
-                <button class="c-btn" onclick="call('+60199887766')" aria-label="Call"><i
-                        class='bx bx-phone'></i></button>
-                <button class="c-btn wa" onclick="wa('+60199887766')" aria-label="WhatsApp"><i
-                        class='bx bxl-whatsapp'></i></button>
+                <button class="c-btn" onclick="call('+60199887766')" aria-label="Call"><i class='bx bx-phone'></i></button>
+                <button class="c-btn wa" onclick="wa('+60199887766')" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></button>
             </div>
         </div>
         <div class="contact-row">
             <div class="contact-info"><strong>Haji Ahmad Fauzi</strong><span>Bapa Pengantin Perempuan</span></div>
             <div class="contact-btns">
-                <button class="c-btn" onclick="call('+60177665544')" aria-label="Call"><i
-                        class='bx bx-phone'></i></button>
-                <button class="c-btn wa" onclick="wa('+60177665544')" aria-label="WhatsApp"><i
-                        class='bx bxl-whatsapp'></i></button>
+                <button class="c-btn" onclick="call('+60177665544')" aria-label="Call"><i class='bx bx-phone'></i></button>
+                <button class="c-btn wa" onclick="wa('+60177665544')" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></button>
             </div>
         </div>
     </div>
@@ -2030,15 +1882,10 @@
 
 
     <script>
-        /* ═══════════════════════════════════════════════
-           CONFIG — ganti dengan URL Apps Script anda
-        ═══════════════════════════════════════════════ */
         const API = 'https://script.google.com/macros/s/AKfycbwEk28S6GjgpfJQcWtjcLad1Muo9WaD6hL32I1xX2lXu8JGkbykn5GfUgapm-1KY5h5/exec';
         const WEDDING = new Date('2026-05-03T11:00:00');
 
-        /* ═══════════════════════════════════════════════
-           COVER OPEN
-        ═══════════════════════════════════════════════ */
+        /* COVER */
         document.getElementById('cover-open-btn').addEventListener('click', function () {
             document.getElementById('cover').classList.add('gone');
             const page = document.getElementById('page');
@@ -2051,9 +1898,7 @@
             }, 100);
         });
 
-        /* ═══════════════════════════════════════════════
-           DESKTOP CURSOR (mouse only)
-        ═══════════════════════════════════════════════ */
+        /* DESKTOP CURSOR */
         if (window.matchMedia('(pointer:fine)').matches) {
             document.body.classList.add('desktop');
             const cur = document.getElementById('cursor');
@@ -2064,9 +1909,7 @@
             });
         }
 
-        /* ═══════════════════════════════════════════════
-           COUNTDOWN
-        ═══════════════════════════════════════════════ */
+        /* COUNTDOWN */
         function tick() {
             const d = WEDDING - Date.now();
             if (d <= 0) { ['d', 'h', 'm', 's'].forEach(x => document.getElementById('cd-' + x).textContent = '0'); return; }
@@ -2078,9 +1921,7 @@
         function pad(n) { return String(n).padStart(2, '0'); }
         setInterval(tick, 1000); tick();
 
-        /* ═══════════════════════════════════════════════
-           SCROLL REVEAL
-        ═══════════════════════════════════════════════ */
+        /* SCROLL REVEAL */
         function runReveal() {
             const obs = new IntersectionObserver(entries => {
                 entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
@@ -2088,9 +1929,7 @@
             document.querySelectorAll('.sr').forEach(el => obs.observe(el));
         }
 
-        /* ═══════════════════════════════════════════════
-           TABS
-        ═══════════════════════════════════════════════ */
+        /* TABS */
         function switchTab(t) {
             ['ucapan', 'rsvp'].forEach(x => {
                 document.getElementById('tab-' + x).classList.toggle('on', x === t);
@@ -2099,9 +1938,7 @@
             if (t === 'rsvp') loadStats();
         }
 
-        /* ═══════════════════════════════════════════════
-           API — UCAPAN
-        ═══════════════════════════════════════════════ */
+        /* API — UCAPAN */
         async function loadUcapan() {
             const feed = document.getElementById('msg-feed');
             try {
@@ -2127,10 +1964,10 @@
 
         function msgCard(name, text, date, i) {
             return `<div class="msg-card" style="animation-delay:${i * .06}s">
-    <div class="msg-name">${esc(name)}</div>
-    <div class="msg-text">${esc(text)}</div>
-    ${date ? `<div class="msg-time">${esc(date)}</div>` : ''}
-  </div>`;
+                <span class="msg-name">${esc(name)}</span>
+                <div class="msg-text">${esc(text)}</div>
+                ${date ? `<span class="msg-time">${esc(date)}</span>` : ''}
+            </div>`;
         }
 
         async function submitUcapan() {
@@ -2154,9 +1991,7 @@
             }
         }
 
-        /* ═══════════════════════════════════════════════
-           API — RSVP / ATTENDANCE
-        ═══════════════════════════════════════════════ */
+        /* API — RSVP */
         let rsvpChoice = '';
 
         function selectRsvp(v) {
@@ -2165,7 +2000,6 @@
             document.getElementById('opt-no').className = 'rsvp-opt' + (v === 'tidak' ? ' sel-no' : '');
             document.getElementById('rsvp-form').style.display = 'block';
             document.getElementById('bilangan-group').style.display = v === 'hadir' ? 'block' : 'none';
-            // smooth scroll to form
             setTimeout(() => document.getElementById('rsvp-form').scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80);
         }
 
@@ -2214,9 +2048,7 @@
             }
         }
 
-        /* ═══════════════════════════════════════════════
-           MUSIC PLAYER
-        ═══════════════════════════════════════════════ */
+        /* MUSIC PLAYER */
         const audio = document.getElementById('bgm');
         let isPlaying = false;
         let isLooping = true;
@@ -2266,9 +2098,7 @@
         });
         audio.addEventListener('ended', () => { if (!isLooping) { isPlaying = false; updatePlayer(); } });
 
-        /* ═══════════════════════════════════════════════
-           SHEETS
-        ═══════════════════════════════════════════════ */
+        /* SHEETS */
         function openSheet(id) {
             closeSheet(true);
             document.getElementById(id)?.classList.add('open');
@@ -2279,9 +2109,7 @@
             document.getElementById('scrim').classList.remove('open');
         }
 
-        /* ═══════════════════════════════════════════════
-           CALENDAR
-        ═══════════════════════════════════════════════ */
+        /* CALENDAR */
         function addGoogleCal() {
             const t = encodeURIComponent('Perkahwinan Ezam & Aimi');
             const l = encodeURIComponent('Dewan Tengku Zara, Seksyen 15, Shah Alam');
@@ -2298,9 +2126,7 @@
             a.download = 'ezam-aimi.ics'; a.click();
         }
 
-        /* ═══════════════════════════════════════════════
-           MAPS & CONTACT
-        ═══════════════════════════════════════════════ */
+        /* MAPS & CONTACT */
         function openGoogleMaps() { window.open('https://www.google.com/maps/search/?api=1&query=Seksyen+15+Shah+Alam+Selangor', '_blank'); }
         function openWaze() { window.open('https://waze.com/ul?q=Seksyen+15+Shah+Alam&navigate=yes', '_blank'); }
         function call(n) { window.location.href = 'tel:' + n; }
@@ -2308,16 +2134,12 @@
             window.open('https://wa.me/' + n.replace(/\D/g, '') + '?text=' + encodeURIComponent('Assalamualaikum, berkenaan majlis perkahwinan Ezam & Aimi pada 3 Mei 2026.'), '_blank');
         }
 
-        /* ═══════════════════════════════════════════════
-           SCROLL HELPER
-        ═══════════════════════════════════════════════ */
+        /* SCROLL HELPER */
         function scrollTo_(sel) {
             document.querySelector(sel)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        /* ═══════════════════════════════════════════════
-           TOAST
-        ═══════════════════════════════════════════════ */
+        /* TOAST */
         let _tt;
         function showToast(msg) {
             const t = document.getElementById('toast');
@@ -2325,30 +2147,22 @@
             clearTimeout(_tt); _tt = setTimeout(() => t.classList.remove('show'), 3000);
         }
 
-        /* ═══════════════════════════════════════════════
-           STATUS HELPER
-        ═══════════════════════════════════════════════ */
+        /* STATUS HELPER */
         function setStatus(el, msg, type) {
             el.textContent = msg;
             el.className = 'form-status st-' + type;
             if (type === 'ok') setTimeout(() => { el.textContent = ''; el.className = 'form-status'; }, 6000);
         }
 
-        /* ═══════════════════════════════════════════════
-           ESCAPE HTML
-        ═══════════════════════════════════════════════ */
+        /* ESCAPE HTML */
         function esc(s) {
             return String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
         }
 
-        /* ═══════════════════════════════════════════════
-           KEYBOARD ESC
-        ═══════════════════════════════════════════════ */
+        /* KEYBOARD ESC */
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
 
-        /* ═══════════════════════════════════════════════
-           INIT
-        ═══════════════════════════════════════════════ */
+        /* INIT */
         loadUcapan();
         loadStats();
     </script>
