@@ -458,16 +458,29 @@
             0% { transform: translateY(0) scale(0.5); opacity: 0.8; }
             100% { transform: translateY(-180px) scale(1); opacity: 0; }
         }
-        .scroll-hint {
-            text-align: center;
-            font-size: 0.6rem;
-            color: #C6A43F;
-            margin-top: 0.3rem;
-            animation: bounce 1s infinite;
+        /* Auto-scroll hint animation */
+        .auto-scroll-indicator {
+            position: fixed;
+            bottom: 85px;
+            right: 12px;
+            background: rgba(198, 164, 63, 0.9);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 40px;
+            font-size: 0.65rem;
+            font-weight: 500;
+            z-index: 101;
+            backdrop-filter: blur(4px);
+            pointer-events: none;
+            animation: pulseGlow 1.5s infinite;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-        @keyframes bounce {
-            0%,100%{ transform: translateY(0); }
-            50%{ transform: translateY(3px); }
+        @keyframes pulseGlow {
+            0% { opacity: 0.7; transform: scale(0.98);}
+            100% { opacity: 1; transform: scale(1);}
         }
     </style>
 </head>
@@ -601,6 +614,11 @@
     </div>
 </div>
 
+<!-- Auto-scroll floating indicator -->
+<div class="auto-scroll-indicator" id="autoScrollIndicator">
+    <i class="fas fa-arrow-down"></i> Auto scroll aktif
+</div>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
@@ -613,7 +631,7 @@
         if(audio) audio.play().catch(e=>console.log('Auto-play blocked'));
         createFloatingHearts();
         AOS.refresh();
-        startAutoScroll();
+        startAutoScroll(); // start auto-scroll after opening
     };
     
     function createFloatingHearts() {
@@ -629,26 +647,49 @@
         }, 1500);
     }
     
-    // AUTO SCROLL & NAVIGATION
+    // ========== AUTO SCROLL CORE ==========
     let autoScrollInterval = null;
     let isAutoScrolling = true;
+    let scrollIndicator = document.getElementById('autoScrollIndicator');
     
     function startAutoScroll() {
         if (autoScrollInterval) clearInterval(autoScrollInterval);
-        const sectionsArr = [
+        // Define scroll targets in order
+        const sectionsList = [
             { id: 'hero', element: document.querySelector('.hero') },
             { id: 'details', element: document.getElementById('section-details') },
             { id: 'countdown', element: document.getElementById('section-countdown') },
             { id: 'rsvp', element: document.getElementById('section-rsvp') }
         ];
-        let idx = 0;
-        autoScrollInterval = setInterval(() => {
+        let currentIdx = 0;
+        
+        // Function to perform scroll to next section
+        function scrollToNext() {
             if (!isAutoScrolling) return;
-            if (sectionsArr[idx] && sectionsArr[idx].element) {
-                sectionsArr[idx].element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                updateActiveNav(sectionsArr[idx].id);
+            if (sectionsList[currentIdx] && sectionsList[currentIdx].element) {
+                sectionsList[currentIdx].element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                updateActiveNav(sectionsList[currentIdx].id);
+                // show indicator with section name
+                if(scrollIndicator) {
+                    let nameText = '';
+                    if(sectionsList[currentIdx].id === 'hero') nameText = 'Utama';
+                    else if(sectionsList[currentIdx].id === 'details') nameText = 'Butiran';
+                    else if(sectionsList[currentIdx].id === 'countdown') nameText = 'Kiraan';
+                    else nameText = 'Ucapan';
+                    scrollIndicator.innerHTML = `<i class="fas fa-arrow-down"></i> Auto: ${nameText}`;
+                    setTimeout(() => { if(scrollIndicator) scrollIndicator.style.opacity = '1'; }, 100);
+                }
             }
-            idx = (idx + 1) % sectionsArr.length;
+            currentIdx = (currentIdx + 1) % sectionsList.length;
+        }
+        
+        // First scroll after 2 seconds, then every 5 seconds
+        setTimeout(() => {
+            if(isAutoScrolling) scrollToNext();
+        }, 2000);
+        
+        autoScrollInterval = setInterval(() => {
+            if(isAutoScrolling) scrollToNext();
         }, 5000);
     }
     
@@ -657,7 +698,30 @@
             clearInterval(autoScrollInterval);
             autoScrollInterval = null;
             isAutoScrolling = false;
+            if(scrollIndicator) {
+                scrollIndicator.innerHTML = `<i class="fas fa-hand-peace"></i> Auto scroll berhenti`;
+                scrollIndicator.style.background = "#A8896E";
+                setTimeout(() => {
+                    if(scrollIndicator && !isAutoScrolling) scrollIndicator.style.opacity = '0.6';
+                }, 2000);
+            }
         }
+    }
+    
+    // Resume auto-scroll? Optional: we can add a tap on indicator to resume, but better not to confuse user.
+    // However we provide a hidden feature: double tap indicator to resume (optional but nice)
+    if(scrollIndicator) {
+        scrollIndicator.addEventListener('dblclick', () => {
+            if(!isAutoScrolling) {
+                isAutoScrolling = true;
+                startAutoScroll();
+                scrollIndicator.style.background = "rgba(198, 164, 63, 0.9)";
+                scrollIndicator.innerHTML = `<i class="fas fa-arrow-down"></i> Auto scroll aktif`;
+                setTimeout(() => {
+                    if(scrollIndicator && isAutoScrolling) scrollIndicator.style.opacity = '1';
+                }, 500);
+            }
+        });
     }
     
     function updateActiveNav(sectionId) {
@@ -668,7 +732,7 @@
     }
     
     function scrollToSection(sectionId) {
-        stopAutoScroll();
+        stopAutoScroll();  // user interaction stops auto-scroll
         let target = null;
         if (sectionId === 'hero') target = document.querySelector('.hero');
         else if (sectionId === 'details') target = document.getElementById('section-details');
@@ -688,6 +752,7 @@
         });
     });
     
+    // User scroll / touch events will stop auto-scroll permanently (or until double-tap indicator)
     window.addEventListener('wheel', () => { if(isAutoScrolling) stopAutoScroll(); });
     window.addEventListener('touchstart', () => { if(isAutoScrolling) stopAutoScroll(); });
     
