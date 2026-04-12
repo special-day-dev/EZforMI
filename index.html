@@ -22,6 +22,7 @@
             color: #2C2C2C;
             overflow-x: hidden;
             width: 100%;
+            padding-bottom: 70px; /* RUANG UNTUK NAVBAR FIXED */
         }
 
         body::before {
@@ -121,7 +122,7 @@
             z-index: 2;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
             animation: slideUpFade 0.5s ease;
-            padding-bottom: 70px;
+            padding-bottom: 0px;
         }
         .card.show {
             display: block;
@@ -186,11 +187,10 @@
             box-shadow: 0 12px 28px rgba(0,0,0,0.12);
             background: #000;
         }
-        /* 16:9 Aspect Ratio Container */
         .swiper-slide {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 = 9/16 = 0.5625 */
+            padding-bottom: 56.25%;
             background: #1a1a2e;
         }
         .swiper-slide img {
@@ -201,22 +201,6 @@
             height: 100%;
             object-fit: cover;
             display: block;
-        }
-        /* Cinematic overlay effect on hover */
-        .swiper-slide::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(0,0,0,0.3) 100%);
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .swiper-slide:hover::after {
-            opacity: 1;
         }
         .swiper-pagination-bullet-active {
             background: #C6A43F !important;
@@ -400,6 +384,10 @@
             width: 100%;
             cursor: pointer;
             font-size: 0.85rem;
+            transition: 0.2s;
+        }
+        .submit-btn:active {
+            transform: scale(0.97);
         }
         .tab-row {
             display: flex;
@@ -433,27 +421,6 @@
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-        .stats {
-            display: flex;
-            gap: 0.8rem;
-            margin-bottom: 1rem;
-        }
-        .stat-box {
-            background: #FDF8F0;
-            border-radius: 18px;
-            padding: 0.6rem;
-            text-align: center;
-            flex: 1;
-        }
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #C6A43F;
-        }
-        .stat-label {
-            font-size: 0.65rem;
         }
         
         /* Invitation Card */
@@ -527,7 +494,7 @@
             font-style: italic;
         }
 
-        /* Bottom Navigation */
+        /* Bottom Navigation - SENTIASA VISIBLE */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -541,8 +508,8 @@
             display: flex;
             justify-content: space-around;
             border-top: 1px solid rgba(198, 164, 63, 0.3);
-            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05);
-            z-index: 100;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+            z-index: 200;
         }
         .nav-icon {
             font-size: 1.2rem;
@@ -570,16 +537,19 @@
         
         .footer-note {
             text-align: center;
-            font-size: 0.65rem;
-            color: #A0A0A0;
-            padding: 1rem;
+            font-size: 0.7rem;
+            color: #5A4A2E;
+            padding: 1.5rem 1rem 1.8rem;
             background: #FDF8F0;
             margin-bottom: 0;
+            border-top: 1px solid #F0E2C5;
+            line-height: 1.5;
         }
         
         .status-msg {
             font-size: 0.7rem;
             padding: 0.2rem;
+            text-align: center;
         }
         .status-ok { color: #2E7D32; }
         .status-err { color: #C62828; }
@@ -606,7 +576,7 @@
             border-radius: 40px;
             font-size: 0.65rem;
             font-weight: 500;
-            z-index: 101;
+            z-index: 201;
             backdrop-filter: blur(4px);
             pointer-events: auto;
             cursor: pointer;
@@ -620,13 +590,9 @@
             transform: scale(0.95);
         }
         
-        /* Cinematic text for gallery */
-        .cinematic-badge {
-            text-align: center;
-            font-size: 0.65rem;
-            color: #C6A43F;
-            margin-top: 0.5rem;
-            letter-spacing: 2px;
+        /* Fix for RSVP form spacing */
+        .form-group {
+            margin-bottom: 0.7rem;
         }
     </style>
 </head>
@@ -660,7 +626,6 @@
         <div class="section-title">Galeri Pre-Wedding</div>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <!-- Gantikan src dengan gambar local anda -->
                 <div class="swiper-slide"><img src="prewed1.JPG" alt="Pre-wedding Aimi & Ezam 1"></div>
                 <div class="swiper-slide"><img src="prewed2.JPG" alt="Pre-wedding Aimi & Ezam 2"></div>
                 <div class="swiper-slide"><img src="prewed3.JPG" alt="Pre-wedding Aimi & Ezam 3"></div>
@@ -736,18 +701,18 @@
         </div>
         
         <!-- MUSIC PLAYER -->
-       <!-- MUSIC PLAYER -->
-<div class="music-player">
-    <div class="song-selector">
-        <button class="song-btn active" data-song="0" data-start="30">🎵 Hingga Ke Hari Tua</button>
-        <button class="song-btn" data-song="1" data-start="0">🎵 Perfect</button>
-        <button class="song-btn" data-song="2" data-start="50">🎵 Bergema Sampai Selamanya</button>
+        <div class="music-player">
+            <div class="song-selector">
+                <button class="song-btn active" data-song="0" data-start="30">🎵 Hingga Ke Hari Tua</button>
+                <button class="song-btn" data-song="1" data-start="0">🎵 Perfect</button>
+                <button class="song-btn" data-song="2" data-start="50">🎵 Bergema Sampai Selamanya</button>
+            </div>
+            <audio id="bgMusic" controls loop style="width:100%; border-radius:30px;">
+                <source src="aizat.mp3" type="audio/mpeg">
+            </audio>
+            <div class="current-song" id="currentSongLabel">🎶 Sedang dimainkan: Hingga Ke Hari Tua</div>
+        </div>
     </div>
-    <audio id="bgMusic" controls loop style="width:100%; border-radius:30px;">
-        <source src="aizat.mp3" type="audio/mpeg">
-    </audio>
-    <div class="current-song" id="currentSongLabel">🎶 Sedang dimainkan: Hingga Ke Hari Tua</div>
-</div>
 
     <!-- Ucapan & Kehadiran -->
     <div id="section-rsvp" class="section" data-aos="fade-up">
@@ -768,24 +733,20 @@
             </div>
         </div>
         <div class="tab-panel" id="tabHadir">
-            <!-- <div class="stats">
-                <div class="stat-box"><span class="stat-number" id="attTotal">0</span><div class="stat-label">Jumlah</div></div>
-                <div class="stat-box"><span class="stat-number" id="attYes">0</span><div class="stat-label">Hadir</div></div>
-                <div class="stat-box"><span class="stat-number" id="attPax">0</span><div class="stat-label">Orang</div></div>
-            </div> -->
             <div class="form-group"><label style="font-size:0.75rem;">Nama Penuh</label><input type="text" id="hadirNama" placeholder="Nama anda"></div>
             <div class="form-group"><label style="font-size:0.75rem;">No. Telefon</label><input type="tel" id="hadirTel" placeholder="012-3456789"></div>
             <div class="form-group"><label style="font-size:0.75rem;">Bilangan Pax</label><input type="number" id="hadirBil" min="0" max="20" value="1"></div>
-            <div class="form-group"><label style="font-size:0.75rem;">Status</label><select id="hadirStatus"><option value="hadir">Insya-Allah Hadir</option><option value="tidak">Tidak Dapat Hadir</option></select></div><br>           <button class="submit-btn" id="btnHadir">✦ SAHKAN KEHADIRAN ✦</button>
+            <div class="form-group"><label style="font-size:0.75rem;">Status</label><select id="hadirStatus"><option value="hadir">Insya-Allah Hadir</option><option value="tidak">Tidak Dapat Hadir</option></select></div>
+            <button class="submit-btn" id="btnHadir">✦ SAHKAN KEHADIRAN ✦</button>
             <div class="status-msg" id="statusHadir" style="text-align:center;"></div>
         </div>
     </div>
 
     <div class="footer-note">
-        "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri." (Ar-Rum: 21)
+        <i class="fas fa-heart" style="color: #C6A43F; font-size: 0.7rem;"></i> "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri." <br>(Ar-Rum: 21) <i class="fas fa-heart" style="color: #C6A43F; font-size: 0.7rem;"></i>
     </div>
 
-    <!-- BOTTOM NAVIGATION -->
+    <!-- BOTTOM NAVIGATION (FIXED) -->
     <div class="bottom-nav" id="bottomNav">
         <div class="nav-icon" data-section="hero"><i class="fas fa-home"></i><span>Utama</span></div>
         <div class="nav-icon" data-section="details"><i class="fas fa-info-circle"></i><span>Butiran</span></div>
@@ -805,84 +766,73 @@
     const API_URL = 'https://script.google.com/macros/s/AKfycbwEk28S6GjgpfJQcWtjcLad1Muo9WaD6hL32I1xX2lXu8JGkbykn5GfUgapm-1KY5h5/exec';
 
     // MUSIC PLAYER
-    // MUSIC PLAYER
-const songs = [
-    { name: "Hingga Ke Hari Tua - Aizat Amdan", file: "aizat.mp3", startTime: 30 },
-    { name: "Perfect - Ed Sheeran", file: "perfect.mp3", startTime: 0 },
-    { name: "Bergema Sampai Selamanya - Nadhif Basalamah", file: "nadhif.mp3", startTime: 50 }
-];
+    const songs = [
+        { name: "Hingga Ke Hari Tua - Aizat Amdan", file: "aizat.mp3", startTime: 30 },
+        { name: "Perfect - Ed Sheeran", file: "perfect.mp3", startTime: 0 },
+        { name: "Bergema Sampai Selamanya - Nadhif Basalamah", file: "nadhif.mp3", startTime: 50 }
+    ];
 
-let currentSongIndex = 0;
-const audio = document.getElementById('bgMusic');
-const songBtns = document.querySelectorAll('.song-btn');
-const currentSongLabel = document.getElementById('currentSongLabel');
+    let currentSongIndex = 0;
+    const audio = document.getElementById('bgMusic');
+    const songBtns = document.querySelectorAll('.song-btn');
+    const currentSongLabel = document.getElementById('currentSongLabel');
 
-function changeSong(index) {
-    currentSongIndex = index;
-    const song = songs[index];
-    const wasPlaying = !audio.paused;
-    
-    audio.src = song.file;
-    audio.load();
-    
-    audio.addEventListener('loadedmetadata', function onLoad() {
-        audio.currentTime = song.startTime;
-        audio.removeEventListener('loadedmetadata', onLoad);
-        if (wasPlaying || isAutoScrolling) {
-            audio.play().catch(e => console.log('Play needs interaction'));
-        }
-    });
-    
-    songBtns.forEach((btn, i) => {
-        if (i === index) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
-    
-    currentSongLabel.innerHTML = `🎶 Sedang dimainkan: ${song.name}`;
-}
-
-songBtns.forEach((btn, index) => {
-    btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        changeSong(index);
-    });
-});
-
-audio.addEventListener('timeupdate', function() {
-    const song = songs[currentSongIndex];
-    if (song && audio.duration && !isNaN(audio.duration) && audio.currentTime > audio.duration - 1.5) {
-        audio.currentTime = song.startTime;
+    function changeSong(index) {
+        currentSongIndex = index;
+        const song = songs[index];
+        const wasPlaying = !audio.paused;
+        
+        audio.src = song.file;
+        audio.load();
+        
+        audio.addEventListener('loadedmetadata', function onLoad() {
+            audio.currentTime = song.startTime;
+            audio.removeEventListener('loadedmetadata', onLoad);
+            if (wasPlaying || isAutoScrolling) {
+                audio.play().catch(e => console.log('Play needs interaction'));
+            }
+        });
+        
+        songBtns.forEach((btn, i) => {
+            if (i === index) btn.classList.add('active');
+            else btn.classList.remove('active');
+        });
+        
+        currentSongLabel.innerHTML = `🎶 Sedang dimainkan: ${song.name}`;
     }
-});
 
-audio.addEventListener('error', function() {
-    console.log('Error loading audio file');
-    currentSongLabel.innerHTML = `⚠️ Lagu tidak ditemui. Pastikan file ${songs[currentSongIndex].file} ada.`;
-});
+    songBtns.forEach((btn, index) => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            changeSong(index);
+        });
+    });
+
+    audio.addEventListener('timeupdate', function() {
+        const song = songs[currentSongIndex];
+        if (song && audio.duration && !isNaN(audio.duration) && audio.currentTime > audio.duration - 1.5) {
+            audio.currentTime = song.startTime;
+        }
+    });
 
     // Splash screen
- // Splash screen
-document.getElementById('bukaBtn').onclick = () => {
-    document.getElementById('splash').classList.add('hide');
-    document.getElementById('mainCard').classList.add('show');
-    
-    // Set initial song
-    const initialSong = songs[0];
-    audio.src = initialSong.file;
-    audio.load();
-    audio.addEventListener('loadedmetadata', function onLoad() {
-        audio.currentTime = initialSong.startTime;
-        audio.removeEventListener('loadedmetadata', onLoad);
-        audio.play().catch(e => console.log('Auto-play blocked by browser'));
-    });
-    
-    createFloatingHearts();
-    AOS.refresh();
-    startSlowContinuousScroll();
-};
+    document.getElementById('bukaBtn').onclick = () => {
+        document.getElementById('splash').classList.add('hide');
+        document.getElementById('mainCard').classList.add('show');
+        
+        const initialSong = songs[0];
+        audio.src = initialSong.file;
+        audio.load();
+        audio.addEventListener('loadedmetadata', function onLoad() {
+            audio.currentTime = initialSong.startTime;
+            audio.removeEventListener('loadedmetadata', onLoad);
+            audio.play().catch(e => console.log('Auto-play blocked'));
+        });
+        
+        createFloatingHearts();
+        AOS.refresh();
+        startSlowContinuousScroll();
+    };
     
     function createFloatingHearts() {
         setInterval(() => {
@@ -979,7 +929,7 @@ document.getElementById('bukaBtn').onclick = () => {
         document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
         if(tab === 'ucapan') { document.getElementById('tabUcapan').classList.add('active'); document.querySelector('.tab-btn:first-child').classList.add('active'); } 
-        else { document.getElementById('tabHadir').classList.add('active'); document.querySelector('.tab-btn:last-child').classList.add('active'); loadAttendanceStats(); }
+        else { document.getElementById('tabHadir').classList.add('active'); document.querySelector('.tab-btn:last-child').classList.add('active'); }
     }
     window.switchTab = switchTab;
     
@@ -1004,21 +954,42 @@ document.getElementById('bukaBtn').onclick = () => {
             else throw new Error();
         } catch(e) { setStatus(statusEl, 'Gagal. Cuba lagi.', 'err'); }
     }
-    async function loadAttendanceStats() { try { const res = await fetch(`${API_URL}?type=attendance`); const data = await res.json(); document.getElementById('attTotal').textContent = data.totalHadir || 0; document.getElementById('attYes').textContent = data.totalHadir || 0; document.getElementById('attPax').textContent = data.totalPax || 0; } catch(e) {} }
+    
+    // FIXED: submitKehadiran now works (referenced all elements correctly)
     async function submitKehadiran() {
-        const nama = document.getElementById('hadirNama').value.trim(), telefon = document.getElementById('hadirTel').value.trim(), bilangan = document.getElementById('hadirBil').value, status = document.getElementById('hadirStatus').value, note = document.getElementById('hadirNote').value, statusEl = document.getElementById('statusHadir');
+        const nama = document.getElementById('hadirNama').value.trim();
+        const telefon = document.getElementById('hadirTel').value.trim();
+        const bilangan = document.getElementById('hadirBil').value;
+        const status = document.getElementById('hadirStatus').value;
+        const statusEl = document.getElementById('statusHadir');
+        
         if(!nama) return setStatus(statusEl, 'Masukkan nama', 'err');
         setStatus(statusEl, 'Menghantar...', 'loading');
         try {
-            const formData = new URLSearchParams(); formData.append('type', 'attendance'); formData.append('nama', nama); formData.append('telefon', telefon); formData.append('bilangan', parseInt(bilangan) || 1); formData.append('status', status); formData.append('note', note);
+            const formData = new URLSearchParams();
+            formData.append('type', 'attendance');
+            formData.append('nama', nama);
+            formData.append('telefon', telefon);
+            formData.append('bilangan', parseInt(bilangan) || 1);
+            formData.append('status', status);
+            formData.append('note', '');
+            
             const res = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: formData });
             const result = await res.json();
-            if(result.status === 'ok') { const msg = status === 'hadir' ? 'Kehadiran disahkan ✦' : 'Terima kasih atas makluman.'; setStatus(statusEl, msg, 'ok'); document.getElementById('hadirNama').value = ''; document.getElementById('hadirTel').value = ''; document.getElementById('hadirNote').value = ''; loadAttendanceStats(); } 
-            else throw new Error();
+            if(result.status === 'ok') { 
+                const msg = status === 'hadir' ? 'Kehadiran disahkan ✦ Terima kasih!' : 'Terima kasih atas makluman.';
+                setStatus(statusEl, msg, 'ok'); 
+                document.getElementById('hadirNama').value = ''; 
+                document.getElementById('hadirTel').value = ''; 
+                document.getElementById('hadirBil').value = '1';
+            } else throw new Error();
         } catch(e) { setStatus(statusEl, 'Gagal. Cuba lagi.', 'err'); }
     }
+    
     function setStatus(el, msg, type) { if(!el) return; el.textContent = msg; el.className = `status-msg status-${type}`; if(type === 'ok') setTimeout(() => { if(el.textContent === msg) el.textContent = ''; }, 4000); }
     function escapeHtml(str) { return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;'); }
+    
+    // Attach events properly
     document.getElementById('btnUcapan').onclick = submitUcapan;
     document.getElementById('btnHadir').onclick = submitKehadiran;
     
@@ -1032,7 +1003,7 @@ document.getElementById('bukaBtn').onclick = () => {
     });
     
     AOS.init({ once: true, offset: 20 });
-    loadUcapan(); loadAttendanceStats();
+    loadUcapan();
 </script>
 </body>
 </html>
