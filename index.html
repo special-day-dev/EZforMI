@@ -743,14 +743,14 @@
         <!-- MUSIC PLAYER -->
         <div class="music-player">
             <div class="song-selector">
-                <button class="song-btn active" data-song="0" data-start="0">🎵 Perfect</button>
-                <button class="song-btn" data-song="1" data-start="50">🎵 A Thousand Years</button>
-                <button class="song-btn" data-song="2" data-start="30">🎵 Bismillah</button>
+                <button class="song-btn" data-song="0" data-start="30">🎵 Hingga Ke Hari Tua</button>
+                <button class="song-btn active" data-song="1" data-start="0">🎵 Perfect</button>
+                <button class="song-btn" data-song="2" data-start="50">🎵 Bergema Sampai Selamanya</button>
             </div>
             <audio id="bgMusic" controls loop style="width:100%; border-radius:30px;">
-                <source src="music/perfect.mp3" type="audio/mpeg">
+                <source src="aizat" type="audio/mpeg">
             </audio>
-            <div class="current-song" id="currentSongLabel">🎶 Sedang dimainkan: Perfect</div>
+            <div class="current-song" id="currentSongLabel">🎶 Sedang dimainkan: Sampai Ke Hari Tua</div>
         </div>
     </div>
 
@@ -812,9 +812,9 @@
 
     // MUSIC PLAYER
     const songs = [
-        { name: "Perfect - Ed Sheeran", file: "music/perfect.mp3", startTime: 0 },
-        { name: "A Thousand Years - Christina Perri", file: "music/thousand-years.mp3", startTime: 50 },
-        { name: "Bismillah - Maher Zain", file: "music/bismillah.mp3", startTime: 30 }
+        { name: "Perfect - Ed Sheeran", file: "perfect.mp3", startTime: 0 },
+        { name: "Bergema Sampai Selamanya - Nadhif Basalamah", file: "nadhif.mp3", startTime: 50 },
+        { name: "Hingga Ke Hari Tua - Aizat Amdan", file: "aizat.mp3", startTime: 0 }
     ];
     
     let currentSongIndex = 0;
