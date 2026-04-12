@@ -2,19 +2,18 @@
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>Walimatul Urus | Ahmad Ezam & Aimi Khairiyah</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Swiper for pre-wedding gallery -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -22,9 +21,10 @@
             background: #FDF8F0;
             color: #2C2C2C;
             overflow-x: hidden;
+            width: 100%;
         }
 
-        /* Corak latar halus songket + animasi */
+        /* Latar songket halus */
         body::before {
             content: "";
             position: fixed;
@@ -55,7 +55,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.8s ease, visibility 0.8s;
+            transition: opacity 0.7s ease, visibility 0.7s;
         }
         .splash.hide {
             opacity: 0;
@@ -63,8 +63,8 @@
         }
         .splash-card {
             text-align: center;
-            max-width: 90%;
-            padding: 2rem;
+            max-width: 85%;
+            padding: 1.5rem;
             animation: fadeInScale 0.8s ease, floatGlow 3s ease-in-out infinite;
         }
         @keyframes fadeInScale {
@@ -73,18 +73,18 @@
         }
         @keyframes floatGlow {
             0% { transform: translateY(0px); text-shadow: 0 0 0 rgba(198, 164, 63, 0); }
-            50% { transform: translateY(-6px); text-shadow: 0 0 12px rgba(198, 164, 63, 0.4); }
+            50% { transform: translateY(-5px); text-shadow: 0 0 10px rgba(198, 164, 63, 0.3); }
             100% { transform: translateY(0px); text-shadow: 0 0 0 rgba(198, 164, 63, 0); }
         }
         .splash-card .arab {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-family: 'Playfair Display', serif;
             color: #C6A43F;
             margin-bottom: 0.5rem;
         }
         .splash-card .names {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 600;
             color: #1E1E1E;
             margin: 0.5rem 0;
@@ -94,10 +94,10 @@
             border: none;
             color: white;
             font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 500;
-            padding: 0.8rem 2rem;
-            margin-top: 1.5rem;
+            padding: 0.7rem 1.8rem;
+            margin-top: 1.2rem;
             cursor: pointer;
             border-radius: 40px;
             transition: all 0.3s;
@@ -109,50 +109,46 @@
             70% { box-shadow: 0 0 0 10px rgba(198, 164, 63, 0); }
             100% { box-shadow: 0 0 0 0 rgba(198, 164, 63, 0); }
         }
-        .buka-btn:hover {
-            background: #A8892E;
-            transform: scale(1.03);
-        }
 
-        /* Main Card Container */
+        /* Main Card - mobile first */
         .card {
-            max-width: 600px;
+            max-width: 100%;
             margin: 0 auto;
             background: #FFFFFF;
-            border-radius: 32px 32px 0 0;
+            border-radius: 28px 28px 0 0;
             overflow-x: hidden;
             display: none;
             position: relative;
             z-index: 2;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
-            animation: slideUpFade 0.6s ease;
-            padding-bottom: 70px; /* Space for fixed bottom nav */
+            animation: slideUpFade 0.5s ease;
+            padding-bottom: 70px;
         }
         .card.show {
             display: block;
         }
         @keyframes slideUpFade {
-            from { opacity: 0; transform: translateY(40px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
             background: linear-gradient(135deg, #FDF8F0 0%, #FFFFFF 100%);
-            padding: 2rem 1.5rem 1rem;
+            padding: 1.5rem 1rem 1rem;
             text-align: center;
             border-bottom: 1px solid #F0E2C5;
         }
         .couple-icon {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             background: #F0E2C5;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 3rem;
+            margin: 0 auto 0.8rem;
+            font-size: 2.5rem;
             color: #C6A43F;
             border: 3px solid #C6A43F;
             animation: gentlePulse 2s infinite;
@@ -164,92 +160,102 @@
         }
         .hero .big-name {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 1.7rem;
             font-weight: 700;
             color: #1E1E1E;
         }
+        .hero .sub-name {
+            font-size: 0.75rem;
+            color: #7A7A7A;
+        }
+        .hero .date {
+            font-size: 0.8rem;
+            margin-top: 0.6rem;
+            color: #C6A43F;
+            font-weight: 500;
+        }
 
-        /* Gallery Swiper */
+        /* Gallery Swiper - mobile friendly */
         .gallery-section {
             background: #FFFCF8;
-            padding: 1rem 1rem 1.8rem;
+            padding: 0.8rem 1rem 1.5rem;
         }
         .swiper {
             width: 100%;
-            border-radius: 28px;
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
         .swiper-slide img {
             width: 100%;
-            height: 320px;
+            height: 280px;
             object-fit: cover;
             display: block;
-            transition: transform 0.4s;
         }
         .swiper-pagination-bullet-active {
             background: #C6A43F !important;
         }
         .swiper-button-next, .swiper-button-prev {
             color: #C6A43F;
-            background: rgba(255,255,240,0.6);
+            background: rgba(255,255,240,0.7);
             border-radius: 50%;
-            width: 38px;
-            height: 38px;
+            width: 34px;
+            height: 34px;
+        }
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 1rem;
         }
 
-        /* Section */
+        /* Sections */
         .section {
-            padding: 1.8rem 1.5rem;
+            padding: 1.5rem 1.2rem;
             border-bottom: 1px solid #F0E2C5;
-            transition: background 0.3s;
-            scroll-margin-top: 20px;
-        }
-        .section:hover {
-            background: rgba(198, 164, 63, 0.02);
+            scroll-margin-top: 15px;
         }
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: #1E1E1E;
             text-align: center;
-            margin-bottom: 1rem;
-            position: relative;
+            margin-bottom: 0.8rem;
         }
         .section-title:after {
             content: "";
             display: block;
-            width: 50px;
+            width: 45px;
             height: 2px;
             background: #C6A43F;
             margin: 0.5rem auto;
             transition: width 0.3s;
         }
-        .section:hover .section-title:after {
-            width: 80px;
-        }
         .grid-2 {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem;
             flex-wrap: wrap;
         }
         .info-card {
             background: #FDF8F0;
-            border-radius: 24px;
-            padding: 1rem 1.2rem;
+            border-radius: 20px;
+            padding: 0.8rem 0.8rem;
             text-align: center;
             flex: 1;
-            min-width: 130px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            min-width: 110px;
+            transition: transform 0.2s;
         }
-        .info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        .info-card i {
+            font-size: 1.3rem;
+        }
+        .info-card .label {
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+        .info-card .value {
+            font-size: 0.75rem;
         }
         .map-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
             justify-content: center;
             margin: 1rem 0;
         }
@@ -257,135 +263,91 @@
             background: transparent;
             border: 1px solid #C6A43F;
             color: #C6A43F;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.8rem;
             border-radius: 30px;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             cursor: pointer;
-            transition: 0.3s;
         }
-        .map-btn:hover {
-            background: #C6A43F;
-            color: white;
-            transform: scale(1.02);
-        }
-        /* Countdown */
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 0.8rem;
             flex-wrap: wrap;
             margin: 1rem 0;
         }
         .cd-item {
             background: #FDF8F0;
-            border-radius: 20px;
-            padding: 0.8rem 1rem;
+            border-radius: 18px;
+            padding: 0.5rem 0.8rem;
             text-align: center;
-            min-width: 70px;
-            transition: all 0.3s;
-            animation: fadeInUp 0.6s backwards;
-        }
-        .cd-item:nth-child(1) { animation-delay: 0.1s; }
-        .cd-item:nth-child(2) { animation-delay: 0.2s; }
-        .cd-item:nth-child(3) { animation-delay: 0.3s; }
-        .cd-item:nth-child(4) { animation-delay: 0.4s; }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .cd-item:hover {
-            transform: translateY(-3px);
-            background: #FFF4E0;
+            min-width: 65px;
         }
         .cd-number {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #C6A43F;
+        }
+        .cd-label {
+            font-size: 0.6rem;
         }
         .schedule-item {
             display: flex;
             justify-content: space-between;
-            padding: 0.8rem 0;
+            padding: 0.6rem 0;
             border-bottom: 1px dashed #F0E2C5;
-            transition: padding-left 0.2s;
-        }
-        .schedule-item:hover {
-            padding-left: 10px;
-            border-bottom-color: #C6A43F;
+            font-size: 0.85rem;
         }
         .ucapan-list {
-            max-height: 350px;
+            max-height: 300px;
             overflow-y: auto;
-            margin: 1rem 0;
+            margin: 0.8rem 0;
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 0.7rem;
         }
         .ucapan-card {
             background: #FDF8F0;
-            border-radius: 20px;
-            padding: 1rem;
+            border-radius: 18px;
+            padding: 0.8rem;
             border-left: 4px solid #C6A43F;
-            transition: transform 0.2s, box-shadow 0.2s;
-            animation: slideInLeft 0.4s ease;
-        }
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        .ucapan-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
         }
         input, textarea, select {
             width: 100%;
-            padding: 0.8rem;
+            padding: 0.7rem;
             border: 1px solid #E0E0E0;
             border-radius: 30px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             background: #FFFFFF;
-            transition: all 0.3s;
-        }
-        input:focus, textarea:focus, select:focus {
-            border-color: #C6A43F;
-            box-shadow: 0 0 0 3px rgba(198, 164, 63, 0.2);
-            outline: none;
         }
         .submit-btn {
             background: #C6A43F;
             border: none;
             color: white;
             font-weight: 500;
-            padding: 0.8rem;
+            padding: 0.7rem;
             border-radius: 40px;
             width: 100%;
             cursor: pointer;
-            transition: 0.3s;
-        }
-        .submit-btn:hover {
-            background: #A8892E;
-            transform: scale(1.01);
+            font-size: 0.85rem;
         }
         .tab-row {
             display: flex;
             gap: 0.5rem;
             background: #F0E2C5;
             border-radius: 50px;
-            margin: 1rem 0;
+            margin: 0.8rem 0;
             padding: 0.2rem;
         }
         .tab-btn {
             flex: 1;
-            padding: 0.6rem;
+            padding: 0.5rem;
             background: transparent;
             border: none;
             border-radius: 50px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 500;
             cursor: pointer;
-            transition: 0.2s;
         }
         .tab-btn.active {
             background: #C6A43F;
@@ -393,7 +355,7 @@
         }
         .tab-panel {
             display: none;
-            animation: fadeIn 0.3s;
+            animation: fadeIn 0.2s;
         }
         .tab-panel.active {
             display: block;
@@ -404,49 +366,45 @@
         }
         .stats {
             display: flex;
-            gap: 1rem;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
         }
         .stat-box {
             background: #FDF8F0;
-            border-radius: 20px;
-            padding: 0.8rem;
+            border-radius: 18px;
+            padding: 0.6rem;
             text-align: center;
             flex: 1;
-            transition: transform 0.2s;
-        }
-        .stat-box:hover {
-            transform: translateY(-3px);
         }
         .stat-number {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: #C6A43F;
         }
+        .stat-label {
+            font-size: 0.65rem;
+        }
         
-        /* BOTTOM NAVIGATION - ALWAYS VISIBLE & STICKY */
+        /* BOTTOM NAVIGATION - FIXED & MOBILE OPTIMIZED */
         .bottom-nav {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            max-width: 600px;
+            max-width: 100%;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.96);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(12px);
-            padding: 0.8rem 1.5rem;
+            padding: 0.6rem 1rem;
             display: flex;
             justify-content: space-around;
             border-top: 1px solid rgba(198, 164, 63, 0.3);
-            border-radius: 30px 30px 0 0;
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05);
             z-index: 100;
-            transition: all 0.2s;
         }
         .nav-icon {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: #A8896E;
             cursor: pointer;
             transition: 0.2s;
@@ -456,63 +414,60 @@
         }
         .nav-icon i {
             display: block;
+            font-size: 1.3rem;
             margin-bottom: 0.2rem;
         }
         .nav-icon span {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 500;
             display: block;
         }
-        .nav-icon:hover, .nav-icon.active {
+        .nav-icon.active {
             color: #C6A43F;
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
         
         .footer-note {
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #A0A0A0;
             padding: 1rem;
             background: #FDF8F0;
-            margin-bottom: 70px;
+            margin-bottom: 0;
         }
         audio {
             width: 100%;
-            margin: 1rem 0;
+            margin: 0.8rem 0;
             border-radius: 30px;
         }
         .status-msg {
-            font-size: 0.75rem;
-            padding: 0.3rem;
+            font-size: 0.7rem;
+            padding: 0.2rem;
         }
         .status-ok { color: #2E7D32; }
         .status-err { color: #C62828; }
-        .status-loading { color: #C6A43F; }
-        
-        /* Floating hearts animation */
         .floating-heart {
             position: fixed;
             bottom: 0;
-            font-size: 1.2rem;
+            font-size: 1rem;
             pointer-events: none;
             z-index: 99;
             animation: floatUp 4s ease-out forwards;
         }
         @keyframes floatUp {
-            0% { transform: translateY(0) scale(0.6); opacity: 0.8; }
-            100% { transform: translateY(-200px) scale(1.2); opacity: 0; }
+            0% { transform: translateY(0) scale(0.5); opacity: 0.8; }
+            100% { transform: translateY(-180px) scale(1); opacity: 0; }
         }
-        /* Auto-scroll indicator */
         .scroll-hint {
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             color: #C6A43F;
-            margin-top: 0.5rem;
-            animation: bounce 1.2s infinite;
+            margin-top: 0.3rem;
+            animation: bounce 1s infinite;
         }
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(5px); }
+            0%,100%{ transform: translateY(0); }
+            50%{ transform: translateY(3px); }
         }
     </style>
 </head>
@@ -521,9 +476,9 @@
 <div class="splash" id="splash">
     <div class="splash-card">
         <div class="arab">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
-        <div class="latin" style="font-size: 0.7rem; letter-spacing: 1px;">Dengan nama Allah Yang Maha Pemurah</div>
+        <div class="latin" style="font-size: 0.65rem;">Dengan nama Allah Yang Maha Pemurah</div>
         <div class="names">Ahmad Ezam</div>
-        <div class="arab" style="font-size: 1.5rem;">&</div>
+        <div class="arab" style="font-size: 1.3rem;">&</div>
         <div class="names">Aimi Khairiyah</div>
         <button class="buka-btn" id="bukaBtn">✦ BUKA KAD ✦</button>
     </div>
@@ -531,37 +486,35 @@
 
 <div class="card" id="mainCard">
     <div class="hero">
-        <div class="couple-icon">
-            <i class="fas fa-heart"></i>
-        </div>
-        <div class="arab">الْحَمْدُ لِلَّهِ</div>
+        <div class="couple-icon"><i class="fas fa-heart"></i></div>
+        <div class="arab" style="font-size: 0.9rem;">الْحَمْدُ لِلَّهِ</div>
         <div class="big-name">Ahmad Ezam</div>
-        <div class="sub-name" style="font-size:0.85rem;">bin Mazlan</div>
-        <div class="big-name" style="font-size: 1.8rem;">&</div>
+        <div class="sub-name">bin Mazlan</div>
+        <div class="big-name" style="font-size: 1.5rem;">&</div>
         <div class="big-name">Aimi Khairiyah</div>
-        <div class="sub-name" style="font-size:0.85rem;">binti Ahmad</div>
-        <div class="date" style="margin-top:0.8rem; color:#C6A43F;">Ahad, 3 Mei 2026 | 11:00 Pagi - 4:00 Petang</div>
+        <div class="sub-name">binti Ahmad</div>
+        <div class="date">Ahad, 3 Mei 2026 | 11:00 Pagi - 4:00 Petang</div>
     </div>
 
     <!-- PRE-WEDDING GALLERY (Swiper) -->
-    <div class="gallery-section" data-aos="fade-up" data-aos-duration="800">
+    <div class="gallery-section" data-aos="fade-up" data-aos-duration="600">
         <div class="section-title">Galeri Pre-Wedding</div>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Pre-Wedding+1" alt="Pre-wedding 1"></div>
-                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Pre-Wedding+2" alt="Pre-wedding 2"></div>
-                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Pre-Wedding+3" alt="Pre-wedding 3"></div>
-                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Pre-Wedding+4" alt="Pre-wedding 4"></div>
+                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Love+Story+1" alt="Pre-wedding 1"></div>
+                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Love+Story+2" alt="Pre-wedding 2"></div>
+                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Love+Story+3" alt="Pre-wedding 3"></div>
+                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Love+Story+4" alt="Pre-wedding 4"></div>
             </div>
             <div class="swiper-pagination"></div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
-        <p style="text-align:center; font-size:0.7rem; margin-top:0.6rem;">✨ Momen indah sebelum ke hari bahagia ✨</p>
+        <p style="text-align:center; font-size:0.65rem; margin-top:0.5rem;">✨ Momen indah sebelum ke hari bahagia ✨</p>
     </div>
 
     <!-- Butiran Majlis -->
-    <div id="section-details" class="section" data-aos="fade-up" data-aos-duration="700">
+    <div id="section-details" class="section" data-aos="fade-up">
         <div class="section-title">Butiran Majlis</div>
         <div class="grid-2">
             <div class="info-card"><i class="far fa-calendar-alt"></i><div class="label">Tarikh</div><div class="value">Ahad<br>3 Mei 2026</div></div>
@@ -576,14 +529,11 @@
             <button class="map-btn" onclick="window.open('https://maps.google.com/?q=Dewan+Tengku+Zara+Shah+Alam','_blank')">🗺️ Google Maps</button>
             <button class="map-btn" onclick="window.open('https://waze.com/ul?q=Dewan+Tengku+Zara+Shah+Alam','_blank')">🧭 Waze</button>
         </div>
-        <div class="info-card" style="margin-top: 0.5rem;">
-            <div class="label">Akad Nikah</div>
-            <div class="value">Ahad, 3 Mei 2026 | 10:00 Pagi (di tempat yang sama)</div>
-        </div>
+        <div class="info-card"><div class="label">Akad Nikah</div><div class="value">Ahad, 3 Mei 2026 | 10:00 Pagi (sama)</div></div>
     </div>
 
     <!-- Kiraan Hari & Aturcara -->
-    <div id="section-countdown" class="section" data-aos="fade-up" data-aos-duration="700">
+    <div id="section-countdown" class="section" data-aos="fade-up">
         <div class="section-title">Kiraan Hari</div>
         <div class="countdown">
             <div class="cd-item"><span class="cd-number" id="days">0</span><div class="cd-label">Hari</div></div>
@@ -591,7 +541,7 @@
             <div class="cd-item"><span class="cd-number" id="minutes">0</span><div class="cd-label">Minit</div></div>
             <div class="cd-item"><span class="cd-number" id="seconds">0</span><div class="cd-label">Saat</div></div>
         </div>
-        <div class="section-title" style="margin-top: 1rem;">Aturcara Majlis</div>
+        <div class="section-title" style="margin-top: 0.8rem;">Aturcara Majlis</div>
         <div class="schedule-list">
             <div class="schedule-item"><span>Kehadiran Tetamu</span><span>11:00 Pagi</span></div>
             <div class="schedule-item"><span>Ketibaan Pengantin</span><span>12:00 Tengahari</span></div>
@@ -601,25 +551,25 @@
         <audio id="bgMusic" controls loop>
             <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
         </audio>
-        <div style="font-size: 0.7rem; text-align: center;">🎵 Perfect - Ed Sheeran (Instrumental)</div>
+        <div style="font-size: 0.6rem; text-align: center;">🎵 Perfect - Ed Sheeran (Instrumental)</div>
     </div>
 
     <!-- Ucapan & Kehadiran -->
-    <div id="section-rsvp" class="section" data-aos="fade-up" data-aos-duration="700">
+    <div id="section-rsvp" class="section" data-aos="fade-up">
         <div class="section-title">Ucapan & Kehadiran</div>
         <div class="tab-row">
             <button class="tab-btn active" onclick="switchTab('ucapan')">UCAPAN & DOA</button>
             <button class="tab-btn" onclick="switchTab('hadir')">SAHKAN KEHADIRAN</button>
         </div>
         <div class="tab-panel active" id="tabUcapan">
-            <div class="arab" style="font-size: 1.2rem; text-align: center;">بَارَكَ اللَّهُ لَكُمَا</div>
-            <div class="latin" style="text-align: center; margin-bottom: 1rem;">Semoga Allah memberkati</div>
-            <div class="ucapan-list" id="ucapanList"><div style="text-align:center;padding:1rem;">Memuatkan ucapan...</div></div>
-            <div style="margin-top: 1rem;">
-                <div class="form-group"><label>Nama Anda</label><input type="text" id="ucapanNama" placeholder="Nama penuh"></div>
-                <div class="form-group"><label>Ucapan & Doa</label><textarea id="ucapanText" rows="3" placeholder="Tulis ucapan dan doa restu anda..."></textarea></div>
+            <div class="arab" style="font-size: 1rem; text-align: center;">بَارَكَ اللَّهُ لَكُمَا</div>
+            <div class="latin" style="text-align: center; margin-bottom: 0.8rem; font-size:0.7rem;">Semoga Allah memberkati</div>
+            <div class="ucapan-list" id="ucapanList"><div style="text-align:center;padding:0.8rem;">Memuatkan ucapan...</div></div>
+            <div style="margin-top: 0.8rem;">
+                <div class="form-group"><label style="font-size:0.75rem;">Nama Anda</label><input type="text" id="ucapanNama" placeholder="Nama penuh"></div>
+                <div class="form-group"><label style="font-size:0.75rem;">Ucapan & Doa</label><textarea id="ucapanText" rows="2" placeholder="Tulis ucapan dan doa restu anda..."></textarea></div>
                 <button class="submit-btn" id="btnUcapan">✦ HANTAR UCAPAN ✦</button>
-                <div class="status-msg" id="statusUcapan" style="text-align:center; margin-top:0.5rem;"></div>
+                <div class="status-msg" id="statusUcapan" style="text-align:center;"></div>
             </div>
         </div>
         <div class="tab-panel" id="tabHadir">
@@ -628,13 +578,13 @@
                 <div class="stat-box"><span class="stat-number" id="attYes">0</span><div class="stat-label">Hadir</div></div>
                 <div class="stat-box"><span class="stat-number" id="attPax">0</span><div class="stat-label">Orang</div></div>
             </div>
-            <div class="form-group"><label>Nama Penuh</label><input type="text" id="hadirNama" placeholder="Nama anda"></div>
-            <div class="form-group"><label>No. Telefon</label><input type="tel" id="hadirTel" placeholder="012-3456789"></div>
-            <div class="form-group"><label>Bilangan Tetamu</label><input type="number" id="hadirBil" min="0" max="20" value="1"></div>
-            <div class="form-group"><label>Status</label><select id="hadirStatus"><option value="hadir">Insya-Allah Hadir</option><option value="tidak">Tidak Dapat Hadir</option></select></div>
-            <div class="form-group"><label>Catatan (Optional)</label><input type="text" id="hadirNote" placeholder="Contoh: Alhamdulillah, akan datang"></div>
+            <div class="form-group"><label style="font-size:0.75rem;">Nama Penuh</label><input type="text" id="hadirNama" placeholder="Nama anda"></div>
+            <div class="form-group"><label style="font-size:0.75rem;">No. Telefon</label><input type="tel" id="hadirTel" placeholder="012-3456789"></div>
+            <div class="form-group"><label style="font-size:0.75rem;">Bilangan Tetamu</label><input type="number" id="hadirBil" min="0" max="20" value="1"></div>
+            <div class="form-group"><label style="font-size:0.75rem;">Status</label><select id="hadirStatus"><option value="hadir">Insya-Allah Hadir</option><option value="tidak">Tidak Dapat Hadir</option></select></div>
+            <div class="form-group"><label style="font-size:0.75rem;">Catatan</label><input type="text" id="hadirNote" placeholder="Contoh: Alhamdulillah, akan datang"></div>
             <button class="submit-btn" id="btnHadir">✦ SAHKAN KEHADIRAN ✦</button>
-            <div class="status-msg" id="statusHadir" style="text-align:center; margin-top:0.5rem;"></div>
+            <div class="status-msg" id="statusHadir" style="text-align:center;"></div>
         </div>
     </div>
 
@@ -642,7 +592,7 @@
         "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri." (Ar-Rum: 21)
     </div>
 
-    <!-- BOTTOM NAVIGATION - ALWAYS VISIBLE -->
+    <!-- BOTTOM NAVIGATION FIXED -->
     <div class="bottom-nav" id="bottomNav">
         <div class="nav-icon" data-section="hero"><i class="fas fa-home"></i><span>Utama</span></div>
         <div class="nav-icon" data-section="details"><i class="fas fa-info-circle"></i><span>Butiran</span></div>
@@ -656,7 +606,6 @@
 <script>
     const API_URL = 'https://script.google.com/macros/s/AKfycbwEk28S6GjgpfJQcWtjcLad1Muo9WaD6hL32I1xX2lXu8JGkbykn5GfUgapm-1KY5h5/exec';
 
-    // Splash & Card reveal
     document.getElementById('bukaBtn').onclick = () => {
         document.getElementById('splash').classList.add('hide');
         document.getElementById('mainCard').classList.add('show');
@@ -664,7 +613,6 @@
         if(audio) audio.play().catch(e=>console.log('Auto-play blocked'));
         createFloatingHearts();
         AOS.refresh();
-        // start auto-scroll after card opens
         startAutoScroll();
     };
     
@@ -674,39 +622,36 @@
             heart.className = 'floating-heart';
             heart.innerHTML = '❤️';
             heart.style.left = Math.random() * 100 + '%';
-            heart.style.fontSize = (Math.random() * 16 + 12) + 'px';
+            heart.style.fontSize = (Math.random() * 12 + 10) + 'px';
             heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
             document.body.appendChild(heart);
             setTimeout(() => heart.remove(), 4000);
-        }, 1200);
+        }, 1500);
     }
     
-    // AUTO-SCROLL FUNCTIONALITY
+    // AUTO SCROLL & NAVIGATION
     let autoScrollInterval = null;
     let isAutoScrolling = true;
     
     function startAutoScroll() {
         if (autoScrollInterval) clearInterval(autoScrollInterval);
-        const sections = [
-            { id: 'hero', element: document.querySelector('.hero'), offset: 0 },
-            { id: 'details', element: document.getElementById('section-details'), offset: 20 },
-            { id: 'countdown', element: document.getElementById('section-countdown'), offset: 20 },
-            { id: 'rsvp', element: document.getElementById('section-rsvp'), offset: 20 }
+        const sectionsArr = [
+            { id: 'hero', element: document.querySelector('.hero') },
+            { id: 'details', element: document.getElementById('section-details') },
+            { id: 'countdown', element: document.getElementById('section-countdown') },
+            { id: 'rsvp', element: document.getElementById('section-rsvp') }
         ];
-        let currentIndex = 0;
-        
+        let idx = 0;
         autoScrollInterval = setInterval(() => {
             if (!isAutoScrolling) return;
-            // scroll to next section
-            if (sections[currentIndex] && sections[currentIndex].element) {
-                sections[currentIndex].element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                updateActiveNav(sections[currentIndex].id);
+            if (sectionsArr[idx] && sectionsArr[idx].element) {
+                sectionsArr[idx].element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                updateActiveNav(sectionsArr[idx].id);
             }
-            currentIndex = (currentIndex + 1) % sections.length;
-        }, 5000); // auto-scroll every 5 seconds
+            idx = (idx + 1) % sectionsArr.length;
+        }, 5000);
     }
     
-    // Stop auto-scroll when user interacts with scroll or click
     function stopAutoScroll() {
         if (autoScrollInterval) {
             clearInterval(autoScrollInterval);
@@ -715,41 +660,34 @@
         }
     }
     
-    // Update active nav icon based on visible section
     function updateActiveNav(sectionId) {
         document.querySelectorAll('.nav-icon').forEach(icon => {
             icon.classList.remove('active');
-            if (icon.getAttribute('data-section') === sectionId) {
-                icon.classList.add('active');
-            }
+            if (icon.getAttribute('data-section') === sectionId) icon.classList.add('active');
         });
     }
     
-    // Scroll to specific section with user interaction (stops auto-scroll)
     function scrollToSection(sectionId) {
         stopAutoScroll();
-        let targetElement = null;
-        if (sectionId === 'hero') targetElement = document.querySelector('.hero');
-        else if (sectionId === 'details') targetElement = document.getElementById('section-details');
-        else if (sectionId === 'countdown') targetElement = document.getElementById('section-countdown');
-        else if (sectionId === 'rsvp') targetElement = document.getElementById('section-rsvp');
-        
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        let target = null;
+        if (sectionId === 'hero') target = document.querySelector('.hero');
+        else if (sectionId === 'details') target = document.getElementById('section-details');
+        else if (sectionId === 'countdown') target = document.getElementById('section-countdown');
+        else if (sectionId === 'rsvp') target = document.getElementById('section-rsvp');
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             updateActiveNav(sectionId);
         }
     }
     
-    // Event listeners for nav icons
     document.querySelectorAll('.nav-icon').forEach(icon => {
         icon.addEventListener('click', (e) => {
             e.preventDefault();
-            const section = icon.getAttribute('data-section');
-            scrollToSection(section);
+            const sec = icon.getAttribute('data-section');
+            scrollToSection(sec);
         });
     });
     
-    // Detect user scroll to stop auto-scroll permanently
     window.addEventListener('wheel', () => { if(isAutoScrolling) stopAutoScroll(); });
     window.addEventListener('touchstart', () => { if(isAutoScrolling) stopAutoScroll(); });
     
@@ -781,15 +719,14 @@
     }
     window.switchTab = switchTab;
     
-    // Ucapan methods
     async function loadUcapan() {
         const container = document.getElementById('ucapanList');
         try {
             const res = await fetch(`${API_URL}?type=ucapan`);
             const data = await res.json();
-            if(!data || data.length === 0) { container.innerHTML = '<div style="text-align:center;padding:1rem;">✨ Belum ada ucapan. Jadi yang pertama! ✨</div>'; return; }
-            container.innerHTML = data.map(item => `<div class="ucapan-card"><div class="ucapan-name" style="font-weight:600;">${escapeHtml(item.nama)}</div><div class="ucapan-text">${escapeHtml(item.ucapan)}</div></div>`).join('');
-        } catch(e) { container.innerHTML = '<div style="text-align:center;padding:1rem;color:#C62828;">Gagal memuatkan ucapan.</div>'; }
+            if(!data || data.length === 0) { container.innerHTML = '<div style="text-align:center;padding:0.8rem;">✨ Belum ada ucapan ✨</div>'; return; }
+            container.innerHTML = data.map(item => `<div class="ucapan-card"><div style="font-weight:600;font-size:0.8rem;">${escapeHtml(item.nama)}</div><div style="font-size:0.75rem;">${escapeHtml(item.ucapan)}</div></div>`).join('');
+        } catch(e) { container.innerHTML = '<div style="text-align:center;padding:0.8rem;color:#C62828;">Gagal memuatkan ucapan.</div>'; }
     }
     
     async function submitUcapan() {
@@ -808,7 +745,7 @@
                 document.getElementById('ucapanNama').value = ''; document.getElementById('ucapanText').value = '';
                 loadUcapan();
             } else throw new Error();
-        } catch(e) { setStatus(statusEl, 'Gagal menghantar. Sila cuba lagi.', 'err'); }
+        } catch(e) { setStatus(statusEl, 'Gagal. Cuba lagi.', 'err'); }
     }
     
     async function loadAttendanceStats() {
@@ -818,7 +755,7 @@
             document.getElementById('attTotal').textContent = data.totalHadir || 0;
             document.getElementById('attYes').textContent = data.totalHadir || 0;
             document.getElementById('attPax').textContent = data.totalPax || 0;
-        } catch(e) { console.warn(e); }
+        } catch(e) {}
     }
     
     async function submitKehadiran() {
@@ -828,7 +765,7 @@
         const status = document.getElementById('hadirStatus').value;
         const note = document.getElementById('hadirNote').value;
         const statusEl = document.getElementById('statusHadir');
-        if(!nama) return setStatus(statusEl, 'Sila masukkan nama anda', 'err');
+        if(!nama) return setStatus(statusEl, 'Masukkan nama', 'err');
         setStatus(statusEl, 'Menghantar...', 'loading');
         try {
             const formData = new URLSearchParams();
@@ -837,37 +774,32 @@
             const res = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: formData });
             const result = await res.json();
             if(result.status === 'ok') {
-                const msg = status === 'hadir' ? 'Kehadiran anda disahkan ✦' : 'Terima kasih atas makluman. Doakan kami dari jauh ya.';
+                const msg = status === 'hadir' ? 'Kehadiran disahkan ✦' : 'Terima kasih atas makluman.';
                 setStatus(statusEl, msg, 'ok');
                 document.getElementById('hadirNama').value = ''; document.getElementById('hadirTel').value = ''; document.getElementById('hadirNote').value = '';
                 loadAttendanceStats();
             } else throw new Error();
-        } catch(e) { setStatus(statusEl, 'Gagal menghantar. Sila cuba lagi.', 'err'); }
+        } catch(e) { setStatus(statusEl, 'Gagal. Cuba lagi.', 'err'); }
     }
     
     function setStatus(el, msg, type) {
         if(!el) return;
         el.textContent = msg;
         el.className = `status-msg status-${type}`;
-        if(type === 'ok') setTimeout(() => { if(el.textContent === msg) el.textContent = ''; }, 5000);
+        if(type === 'ok') setTimeout(() => { if(el.textContent === msg) el.textContent = ''; }, 4000);
     }
     function escapeHtml(str) { return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;'); }
     
     document.getElementById('btnUcapan').onclick = submitUcapan;
     document.getElementById('btnHadir').onclick = submitKehadiran;
     
-    // Initialize Swiper Gallery
     const swiper = new Swiper('.mySwiper', {
-        loop: true,
-        autoplay: { delay: 3000, disableOnInteraction: false },
+        loop: true, autoplay: { delay: 3000, disableOnInteraction: false },
         pagination: { el: '.swiper-pagination', clickable: true },
         navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-        effect: 'slide',
-        speed: 800,
     });
     
-    AOS.init({ once: true, offset: 30 });
-    
+    AOS.init({ once: true, offset: 20 });
     loadUcapan();
     loadAttendanceStats();
 </script>
