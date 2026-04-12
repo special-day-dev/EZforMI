@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="ms">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>Walimatul Urus | Aimi Khairiyah & Ahmad Ezam</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -24,7 +28,6 @@
             width: 100%;
         }
 
-        /* Latar songket halus */
         body::before {
             content: "";
             position: fixed;
@@ -39,8 +42,13 @@
         }
 
         @keyframes slowMove {
-            0% { background-position: 0 0; }
-            100% { background-position: 40px 40px; }
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 40px 40px;
+            }
         }
 
         /* Splash Screen */
@@ -57,31 +65,55 @@
             justify-content: center;
             transition: opacity 0.7s ease, visibility 0.7s;
         }
+
         .splash.hide {
             opacity: 0;
             visibility: hidden;
         }
+
         .splash-card {
             text-align: center;
             max-width: 85%;
             padding: 1.5rem;
             animation: fadeInScale 0.8s ease, floatGlow 3s ease-in-out infinite;
         }
+
         @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
+
         @keyframes floatGlow {
-            0% { transform: translateY(0px); text-shadow: 0 0 0 rgba(198, 164, 63, 0); }
-            50% { transform: translateY(-5px); text-shadow: 0 0 10px rgba(198, 164, 63, 0.3); }
-            100% { transform: translateY(0px); text-shadow: 0 0 0 rgba(198, 164, 63, 0); }
+            0% {
+                transform: translateY(0px);
+                text-shadow: 0 0 0 rgba(198, 164, 63, 0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+                text-shadow: 0 0 10px rgba(198, 164, 63, 0.3);
+            }
+
+            100% {
+                transform: translateY(0px);
+                text-shadow: 0 0 0 rgba(198, 164, 63, 0);
+            }
         }
+
         .splash-card .arab {
             font-size: 2rem;
             font-family: 'Playfair Display', serif;
             color: #C6A43F;
             margin-bottom: 0.5rem;
         }
+
         .splash-card .names {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
@@ -89,6 +121,7 @@
             color: #1E1E1E;
             margin: 0.5rem 0;
         }
+
         .buka-btn {
             background: #C6A43F;
             border: none;
@@ -104,10 +137,19 @@
             box-shadow: 0 4px 12px rgba(198, 164, 63, 0.3);
             animation: pulseButton 2s infinite;
         }
+
         @keyframes pulseButton {
-            0% { box-shadow: 0 0 0 0 rgba(198, 164, 63, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(198, 164, 63, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(198, 164, 63, 0); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(198, 164, 63, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(198, 164, 63, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(198, 164, 63, 0);
+            }
         }
 
         /* Main Card */
@@ -124,12 +166,21 @@
             animation: slideUpFade 0.5s ease;
             padding-bottom: 70px;
         }
+
         .card.show {
             display: block;
         }
+
         @keyframes slideUpFade {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Hero Section */
@@ -139,6 +190,7 @@
             text-align: center;
             border-bottom: 1px solid #F0E2C5;
         }
+
         .couple-icon {
             width: 80px;
             height: 80px;
@@ -153,21 +205,36 @@
             border: 3px solid #C6A43F;
             animation: gentlePulse 2s infinite;
         }
+
         @keyframes gentlePulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(198, 164, 63, 0.2); }
-            50% { transform: scale(1.02); box-shadow: 0 0 0 8px rgba(198, 164, 63, 0.1); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(198, 164, 63, 0); }
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(198, 164, 63, 0.2);
+            }
+
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 0 0 8px rgba(198, 164, 63, 0.1);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(198, 164, 63, 0);
+            }
         }
+
         .hero .big-name {
             font-family: 'Playfair Display', serif;
             font-size: 1.7rem;
             font-weight: 700;
             color: #1E1E1E;
         }
+
         .hero .sub-name {
             font-size: 0.75rem;
             color: #7A7A7A;
         }
+
         .hero .date {
             font-size: 0.8rem;
             margin-top: 0.6rem;
@@ -180,29 +247,36 @@
             background: #FFFCF8;
             padding: 0.8rem 1rem 1.5rem;
         }
+
         .swiper {
             width: 100%;
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
         }
+
         .swiper-slide img {
             width: 100%;
             height: 280px;
             object-fit: cover;
             display: block;
         }
+
         .swiper-pagination-bullet-active {
             background: #C6A43F !important;
         }
-        .swiper-button-next, .swiper-button-prev {
+
+        .swiper-button-next,
+        .swiper-button-prev {
             color: #C6A43F;
-            background: rgba(255,255,240,0.7);
+            background: rgba(255, 255, 240, 0.7);
             border-radius: 50%;
             width: 34px;
             height: 34px;
         }
-        .swiper-button-next:after, .swiper-button-prev:after {
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
             font-size: 1rem;
         }
 
@@ -212,6 +286,7 @@
             border-bottom: 1px solid #F0E2C5;
             scroll-margin-top: 15px;
         }
+
         .section-title {
             font-family: 'Playfair Display', serif;
             font-size: 1.2rem;
@@ -219,6 +294,7 @@
             text-align: center;
             margin-bottom: 0.8rem;
         }
+
         .section-title:after {
             content: "";
             display: block;
@@ -228,12 +304,14 @@
             margin: 0.5rem auto;
             transition: width 0.3s;
         }
+
         .grid-2 {
             display: flex;
             justify-content: center;
             gap: 1rem;
             flex-wrap: wrap;
         }
+
         .info-card {
             background: #FDF8F0;
             border-radius: 20px;
@@ -243,22 +321,27 @@
             min-width: 110px;
             transition: transform 0.2s;
         }
+
         .info-card i {
             font-size: 1.3rem;
         }
+
         .info-card .label {
             font-size: 0.7rem;
             font-weight: 500;
         }
+
         .info-card .value {
             font-size: 0.75rem;
         }
+
         .map-buttons {
             display: flex;
             gap: 0.8rem;
             justify-content: center;
             margin: 1rem 0;
         }
+
         .map-btn {
             background: transparent;
             border: 1px solid #C6A43F;
@@ -268,6 +351,7 @@
             font-size: 0.7rem;
             cursor: pointer;
         }
+
         .countdown {
             display: flex;
             justify-content: center;
@@ -275,6 +359,7 @@
             flex-wrap: wrap;
             margin: 1rem 0;
         }
+
         .cd-item {
             background: #FDF8F0;
             border-radius: 18px;
@@ -282,15 +367,18 @@
             text-align: center;
             min-width: 65px;
         }
+
         .cd-number {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             font-weight: 700;
             color: #C6A43F;
         }
+
         .cd-label {
             font-size: 0.6rem;
         }
+
         .schedule-item {
             display: flex;
             justify-content: space-between;
@@ -298,6 +386,53 @@
             border-bottom: 1px dashed #F0E2C5;
             font-size: 0.85rem;
         }
+
+        /* Music Player Styles */
+        .music-player {
+            background: #FDF8F0;
+            border-radius: 20px;
+            padding: 0.8rem;
+            margin: 0.8rem 0;
+        }
+
+        .song-selector {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .song-btn {
+            background: transparent;
+            border: 1px solid #C6A43F;
+            color: #C6A43F;
+            padding: 0.4rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        .song-btn.active {
+            background: #C6A43F;
+            color: white;
+        }
+
+        .song-btn:hover {
+            background: #C6A43F;
+            color: white;
+            transform: scale(1.02);
+        }
+
+        .current-song {
+            font-size: 0.65rem;
+            text-align: center;
+            color: #A8896E;
+            margin-top: 0.3rem;
+        }
+
         .ucapan-list {
             max-height: 300px;
             overflow-y: auto;
@@ -306,13 +441,17 @@
             flex-direction: column;
             gap: 0.7rem;
         }
+
         .ucapan-card {
             background: #FDF8F0;
             border-radius: 18px;
             padding: 0.8rem;
             border-left: 4px solid #C6A43F;
         }
-        input, textarea, select {
+
+        input,
+        textarea,
+        select {
             width: 100%;
             padding: 0.7rem;
             border: 1px solid #E0E0E0;
@@ -320,6 +459,7 @@
             font-size: 0.8rem;
             background: #FFFFFF;
         }
+
         .submit-btn {
             background: #C6A43F;
             border: none;
@@ -331,6 +471,7 @@
             cursor: pointer;
             font-size: 0.85rem;
         }
+
         .tab-row {
             display: flex;
             gap: 0.5rem;
@@ -339,6 +480,7 @@
             margin: 0.8rem 0;
             padding: 0.2rem;
         }
+
         .tab-btn {
             flex: 1;
             padding: 0.5rem;
@@ -349,26 +491,37 @@
             font-weight: 500;
             cursor: pointer;
         }
+
         .tab-btn.active {
             background: #C6A43F;
             color: white;
         }
+
         .tab-panel {
             display: none;
             animation: fadeIn 0.2s;
         }
+
         .tab-panel.active {
             display: block;
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
+
         .stats {
             display: flex;
             gap: 0.8rem;
             margin-bottom: 1rem;
         }
+
         .stat-box {
             background: #FDF8F0;
             border-radius: 18px;
@@ -376,26 +529,29 @@
             text-align: center;
             flex: 1;
         }
+
         .stat-number {
             font-family: 'Playfair Display', serif;
             font-size: 1.3rem;
             font-weight: 700;
             color: #C6A43F;
         }
+
         .stat-label {
             font-size: 0.65rem;
         }
-        
-        /* NEW: Family Invitation Section (Walimatul Urus) */
+
+        /* Invitation Card */
         .invitation-card {
             background: linear-gradient(120deg, #FFF9F0, #FFF5E6);
             border-radius: 28px;
             margin: 0.5rem 1rem 1.2rem;
             padding: 1.2rem 1rem;
             text-align: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
             border: 1px solid #F0E2C5;
         }
+
         .invitation-title {
             font-family: 'Playfair Display', serif;
             font-size: 1.3rem;
@@ -403,12 +559,14 @@
             letter-spacing: 1px;
             margin-bottom: 0.5rem;
         }
+
         .salam-text {
             font-size: 0.75rem;
             color: #6B5A3E;
             margin-bottom: 1rem;
             font-style: italic;
         }
+
         .parents-names {
             font-size: 0.9rem;
             font-weight: 600;
@@ -416,40 +574,47 @@
             line-height: 1.6;
             margin-bottom: 0.8rem;
         }
+
         .parents-names em {
             font-style: normal;
             color: #C6A43F;
             font-weight: 700;
         }
+
         .invite-guest {
             font-size: 0.7rem;
             color: #7A6A48;
             margin: 0.5rem 0;
         }
+
         .couple-names {
             font-size: 1.2rem;
             font-weight: 700;
             color: #8B6B2E;
             margin: 0.8rem 0;
-            background: rgba(198,164,63,0.1);
+            background: rgba(198, 164, 63, 0.1);
             display: inline-block;
             padding: 0.3rem 1rem;
             border-radius: 40px;
         }
+
         .detail-row {
             font-size: 0.75rem;
             margin: 0.4rem 0;
             color: #4A3E28;
         }
+
         .detail-row i {
             width: 24px;
             color: #C6A43F;
         }
+
         .venue-detail {
             font-size: 0.7rem;
             color: #5A4A2E;
             margin-top: 0.3rem;
         }
+
         .thankyou-note {
             font-size: 0.7rem;
             margin-top: 1rem;
@@ -474,6 +639,7 @@
             box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05);
             z-index: 100;
         }
+
         .nav-icon {
             font-size: 1.2rem;
             color: #A8896E;
@@ -483,21 +649,24 @@
             flex: 1;
             padding: 0.2rem;
         }
+
         .nav-icon i {
             display: block;
             font-size: 1.3rem;
             margin-bottom: 0.2rem;
         }
+
         .nav-icon span {
             font-size: 0.6rem;
             font-weight: 500;
             display: block;
         }
+
         .nav-icon.active {
             color: #C6A43F;
             transform: translateY(-2px);
         }
-        
+
         .footer-note {
             text-align: center;
             font-size: 0.65rem;
@@ -506,17 +675,20 @@
             background: #FDF8F0;
             margin-bottom: 0;
         }
-        audio {
-            width: 100%;
-            margin: 0.8rem 0;
-            border-radius: 30px;
-        }
+
         .status-msg {
             font-size: 0.7rem;
             padding: 0.2rem;
         }
-        .status-ok { color: #2E7D32; }
-        .status-err { color: #C62828; }
+
+        .status-ok {
+            color: #2E7D32;
+        }
+
+        .status-err {
+            color: #C62828;
+        }
+
         .floating-heart {
             position: fixed;
             bottom: 0;
@@ -525,12 +697,19 @@
             z-index: 99;
             animation: floatUp 4s ease-out forwards;
         }
+
         @keyframes floatUp {
-            0% { transform: translateY(0) scale(0.5); opacity: 0.8; }
-            100% { transform: translateY(-180px) scale(1); opacity: 0; }
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-180px) scale(1);
+                opacity: 0;
+            }
         }
-        
-        /* Auto-scroll slow continuous indicator */
+
         .auto-scroll-indicator {
             position: fixed;
             bottom: 85px;
@@ -545,336 +724,466 @@
             backdrop-filter: blur(4px);
             pointer-events: auto;
             cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             gap: 6px;
             transition: 0.2s;
         }
+
         .auto-scroll-indicator:active {
             transform: scale(0.95);
         }
     </style>
 </head>
+
 <body>
 
-<div class="splash" id="splash">
-    <div class="splash-card">
-        <div class="arab">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
-        <div class="latin" style="font-size: 0.65rem;">Dengan nama Allah Yang Maha Pemurah</div>
-        <div class="names">Aimi Khairiyah</div>
-        <div class="arab" style="font-size: 1.3rem;">&</div>
-        <div class="names">Ahmad Ezam</div>
-        <button class="buka-btn" id="bukaBtn">✦ BUKA KAD ✦</button>
-    </div>
-</div>
-
-<div class="card" id="mainCard">
-    <div class="hero">
-        <div class="couple-icon"><i class="fas fa-heart"></i></div>
-        <div class="arab" style="font-size: 0.9rem;">الْحَمْدُ لِلَّهِ</div>
-        <div class="big-name">Aimi Khairiyah</div>
-        <div class="sub-name">binti Ahmad</div>
-        <div class="big-name" style="font-size: 1.5rem;">&</div>
-        <div class="big-name">Ahmad Ezam</div>
-        <div class="sub-name">bin Mazlan</div>
-        <div class="date">Ahad, 3 Mei 2026 | 11:00 Pagi - 4:00 Petang</div>
+    <div class="splash" id="splash">
+        <div class="splash-card">
+            <div class="arab">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+            <div class="latin" style="font-size: 0.65rem;">Dengan nama Allah Yang Maha Pemurah</div>
+            <div class="names">Aimi Khairiyah</div>
+            <div class="arab" style="font-size: 1.3rem;">&</div>
+            <div class="names">Ahmad Ezam</div>
+            <button class="buka-btn" id="bukaBtn">✦ BUKA KAD ✦</button>
+        </div>
     </div>
 
-    <!-- PRE-WEDDING GALLERY -->
-    <div class="gallery-section" data-aos="fade-up" data-aos-duration="600">
-        <div class="section-title">Galeri Pre-Wedding</div>
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Aimi+%26+Ezam+1" alt="Pre-wedding 1"></div>
-                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Aimi+%26+Ezam+2" alt="Pre-wedding 2"></div>
-                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Aimi+%26+Ezam+3" alt="Pre-wedding 3"></div>
-                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Aimi+%26+Ezam+4" alt="Pre-wedding 4"></div>
+    <div class="card" id="mainCard">
+        <div class="hero">
+            <div class="couple-icon"><i class="fas fa-heart"></i></div>
+            <div class="arab" style="font-size: 0.9rem;">الْحَمْدُ لِلَّهِ</div>
+            <div class="big-name">Aimi Khairiyah</div>
+            <div class="sub-name">binti Ahmad</div>
+            <div class="big-name" style="font-size: 1.5rem;">&</div>
+            <div class="big-name">Ahmad Ezam</div>
+            <div class="sub-name">bin Mazlan</div>
+            <div class="date">Ahad, 3 Mei 2026 | 11:00 Pagi - 4:00 Petang</div>
+        </div>
+
+        <!-- PRE-WEDDING GALLERY -->
+        <div class="gallery-section" data-aos="fade-up" data-aos-duration="600">
+            <div class="section-title">Galeri Pre-Wedding</div>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/prewed1.JPG" alt="Pre-wedding 1"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Aimi+%26+Ezam+2"
+                            alt="Pre-wedding 2"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Aimi+%26+Ezam+3"
+                            alt="Pre-wedding 3"></div>
+                    <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Aimi+%26+Ezam+4"
+                            alt="Pre-wedding 4"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <p style="text-align:center; font-size:0.65rem; margin-top:0.5rem;">✨ Momen indah sebelum ke hari bahagia ✨
+            </p>
         </div>
-        <p style="text-align:center; font-size:0.65rem; margin-top:0.5rem;">✨ Momen indah sebelum ke hari bahagia ✨</p>
-    </div>
 
-    <!-- NEW: WALIMATUL URUS INVITATION CARD (replaced previous) -->
-    <div class="invitation-card" data-aos="fade-up" data-aos-duration="700">
-        <div class="invitation-title">💐 Walimatul Urus 💐</div>
-        <div class="salam-text">Assalamualaikum & Salam Sejahtera,</div>
-        <div class="parents-names">
-            <em>Hj. Ahmad Bin Mahmood</em> & <em>Hjh. Rohayah Binti Tahar</em>
-        </div>
-        <div class="invite-guest">
-            Dengan penuh rasa kesyukuran, kami ingin menjemput
-        </div>
-        <div class="invite-guest" style="font-weight:500;">
-            Dato' | Datin | Tuan | Puan | Encik | Cik dan sekeluarga
-        </div>
-        <div class="invite-guest">
-            ke majlis perkahwinan puteri kami
-        </div>
-        <div class="couple-names">
-            Aimi Khairiyah Binti Ahmad<br> & <br>Ahmad Ezam Bin Mazlan
-        </div>
-        <div class="detail-row"><i class="far fa-calendar-alt"></i> Ahad, 03/05/2026</div>
-        <div class="detail-row"><i class="far fa-clock"></i> 11:00 AM - 4:00 PM</div>
-        <div class="detail-row"><i class="fas fa-map-marker-alt"></i> <strong>Dewan Tengku Zara</strong></div>
-        <div class="venue-detail">No 15, Jalan 15/23, Seksyen 15<br>40200 Shah Alam, Selangor</div>
-        <div class="thankyou-note">
-            Semoga dengan kehadiran anda akan menyerikan lagi majlis kami.<br>Insya Allah, Terima Kasih.
-        </div>
-    </div>
-
-    <!-- Butiran Majlis -->
-    <div id="section-details" class="section" data-aos="fade-up">
-        <div class="section-title">Butiran Majlis</div>
-        <div class="grid-2">
-            <div class="info-card"><i class="far fa-calendar-alt"></i><div class="label">Tarikh</div><div class="value">Ahad<br>3 Mei 2026</div></div>
-            <div class="info-card"><i class="far fa-clock"></i><div class="label">Masa</div><div class="value">11:00 Pagi - 4:00 PTG</div></div>
-            <div class="info-card"><i class="fas fa-map-marker-alt"></i><div class="label">Tempat</div><div class="value">Dewan Tengku Zara</div></div>
-        </div>
-        <div class="info-card" style="margin-top: 0.5rem; width: 100%;">
-            <div class="label">Alamat Lengkap</div>
-            <div class="value">No 15, Jalan 15/23, Seksyen 15, 40200 Shah Alam, Selangor</div>
-        </div>
-        <div class="map-buttons">
-            <button class="map-btn" onclick="window.open('https://maps.google.com/?q=Dewan+Tengku+Zara+Shah+Alam','_blank')">🗺️ Google Maps</button>
-            <button class="map-btn" onclick="window.open('https://waze.com/ul?q=Dewan+Tengku+Zara+Shah+Alam','_blank')">🧭 Waze</button>
-        </div>
-        <div class="info-card"><div class="label">Akad Nikah</div><div class="value">Ahad, 3 Mei 2026 | 10:00 Pagi (sama)</div></div>
-    </div>
-
-    <!-- Kiraan Hari & Aturcara -->
-    <div id="section-countdown" class="section" data-aos="fade-up">
-        <div class="section-title">Kiraan Hari</div>
-        <div class="countdown">
-            <div class="cd-item"><span class="cd-number" id="days">0</span><div class="cd-label">Hari</div></div>
-            <div class="cd-item"><span class="cd-number" id="hours">0</span><div class="cd-label">Jam</div></div>
-            <div class="cd-item"><span class="cd-number" id="minutes">0</span><div class="cd-label">Minit</div></div>
-            <div class="cd-item"><span class="cd-number" id="seconds">0</span><div class="cd-label">Saat</div></div>
-        </div>
-        <div class="section-title" style="margin-top: 0.8rem;">Aturcara Majlis</div>
-        <div class="schedule-list">
-            <div class="schedule-item"><span>Kehadiran Tetamu</span><span>11:00 Pagi</span></div>
-            <div class="schedule-item"><span>Ketibaan Pengantin</span><span>12:00 Tengahari</span></div>
-            <div class="schedule-item"><span>Makan Beradab</span><span>12:30 Tengahari</span></div>
-            <div class="schedule-item"><span>Majlis Bersurai</span><span>4:00 Petang</span></div>
-        </div>
-        <audio id="bgMusic" controls loop>
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-        </audio>
-        <div style="font-size: 0.6rem; text-align: center;">🎵 Perfect - Ed Sheeran (Instrumental)</div>
-    </div>
-
-    <!-- Ucapan & Kehadiran -->
-    <div id="section-rsvp" class="section" data-aos="fade-up">
-        <div class="section-title">Ucapan & Kehadiran</div>
-        <div class="tab-row">
-            <button class="tab-btn active" onclick="switchTab('ucapan')">UCAPAN & DOA</button>
-            <button class="tab-btn" onclick="switchTab('hadir')">SAHKAN KEHADIRAN</button>
-        </div>
-        <div class="tab-panel active" id="tabUcapan">
-            <div class="arab" style="font-size: 1rem; text-align: center;">بَارَكَ اللَّهُ لَكُمَا</div>
-            <div class="latin" style="text-align: center; margin-bottom: 0.8rem; font-size:0.7rem;">Semoga Allah memberkati</div>
-            <div class="ucapan-list" id="ucapanList"><div style="text-align:center;padding:0.8rem;">Memuatkan ucapan...</div></div>
-            <div style="margin-top: 0.8rem;">
-                <div class="form-group"><label style="font-size:0.75rem;">Nama Anda</label><input type="text" id="ucapanNama" placeholder="Nama penuh"></div>
-                <div class="form-group"><label style="font-size:0.75rem;">Ucapan & Doa</label><textarea id="ucapanText" rows="2" placeholder="Tulis ucapan dan doa restu anda..."></textarea></div>
-                <button class="submit-btn" id="btnUcapan">✦ HANTAR UCAPAN ✦</button>
-                <div class="status-msg" id="statusUcapan" style="text-align:center;"></div>
+        <!-- INVITATION CARD -->
+        <div class="invitation-card" data-aos="fade-up" data-aos-duration="700">
+            <div class="invitation-title">💐 Walimatul Urus 💐</div>
+            <div class="salam-text">Assalamualaikum & Salam Sejahtera,</div>
+            <div class="parents-names">
+                <em>Hj. Ahmad Bin Mahmood</em> & <em>Hjh. Rohayah Binti Tahar</em>
+            </div>
+            <div class="invite-guest">
+                Dengan penuh rasa kesyukuran, kami ingin menjemput
+            </div>
+            <div class="invite-guest" style="font-weight:500;">
+                Dato' | Datin | Tuan | Puan | Encik | Cik dan sekeluarga
+            </div>
+            <div class="invite-guest">
+                ke majlis perkahwinan puteri kami
+            </div>
+            <div class="couple-names">
+                Aimi Khairiyah Binti Ahmad<br> & <br>Ahmad Ezam Bin Mazlan
+            </div>
+            <div class="detail-row"><i class="far fa-calendar-alt"></i> Ahad, 03/05/2026</div>
+            <div class="detail-row"><i class="far fa-clock"></i> 11:00 AM - 4:00 PM</div>
+            <div class="detail-row"><i class="fas fa-map-marker-alt"></i> <strong>Dewan Tengku Zara</strong></div>
+            <div class="venue-detail">No 15, Jalan 15/23, Seksyen 15<br>40200 Shah Alam, Selangor</div>
+            <div class="thankyou-note">
+                Semoga dengan kehadiran anda akan menyerikan lagi majlis kami.<br>Insya Allah, Terima Kasih.
             </div>
         </div>
-        <div class="tab-panel" id="tabHadir">
-            <div class="stats">
-                <div class="stat-box"><span class="stat-number" id="attTotal">0</span><div class="stat-label">Jumlah</div></div>
-                <div class="stat-box"><span class="stat-number" id="attYes">0</span><div class="stat-label">Hadir</div></div>
-                <div class="stat-box"><span class="stat-number" id="attPax">0</span><div class="stat-label">Orang</div></div>
+
+        <!-- Butiran Majlis -->
+        <div id="section-details" class="section" data-aos="fade-up">
+            <div class="section-title">Butiran Majlis</div>
+            <div class="grid-2">
+                <div class="info-card"><i class="far fa-calendar-alt"></i>
+                    <div class="label">Tarikh</div>
+                    <div class="value">Ahad<br>3 Mei 2026</div>
+                </div>
+                <div class="info-card"><i class="far fa-clock"></i>
+                    <div class="label">Masa</div>
+                    <div class="value">11:00 Pagi - 4:00 PTG</div>
+                </div>
+                <div class="info-card"><i class="fas fa-map-marker-alt"></i>
+                    <div class="label">Tempat</div>
+                    <div class="value">Dewan Tengku Zara</div>
+                </div>
             </div>
-            <div class="form-group"><label style="font-size:0.75rem;">Nama Penuh</label><input type="text" id="hadirNama" placeholder="Nama anda"></div>
-            <div class="form-group"><label style="font-size:0.75rem;">No. Telefon</label><input type="tel" id="hadirTel" placeholder="012-3456789"></div>
-            <div class="form-group"><label style="font-size:0.75rem;">Bilangan Tetamu</label><input type="number" id="hadirBil" min="0" max="20" value="1"></div>
-            <div class="form-group"><label style="font-size:0.75rem;">Status</label><select id="hadirStatus"><option value="hadir">Insya-Allah Hadir</option><option value="tidak">Tidak Dapat Hadir</option></select></div>
-            <div class="form-group"><label style="font-size:0.75rem;">Catatan</label><input type="text" id="hadirNote" placeholder="Contoh: Alhamdulillah, akan datang"></div>
-            <button class="submit-btn" id="btnHadir">✦ SAHKAN KEHADIRAN ✦</button>
-            <div class="status-msg" id="statusHadir" style="text-align:center;"></div>
+            <div class="info-card" style="margin-top: 0.5rem; width: 100%;">
+                <div class="label">Alamat Lengkap</div>
+                <div class="value">No 15, Jalan 15/23, Seksyen 15, 40200 Shah Alam, Selangor</div>
+            </div>
+            <div class="map-buttons">
+                <button class="map-btn"
+                    onclick="window.open('https://maps.google.com/?q=Dewan+Tengku+Zara+Shah+Alam','_blank')">🗺️ Google
+                    Maps</button>
+                <button class="map-btn"
+                    onclick="window.open('https://waze.com/ul?q=Dewan+Tengku+Zara+Shah+Alam','_blank')">🧭 Waze</button>
+            </div>
+            <div class="info-card">
+                <div class="label">Akad Nikah</div>
+                <div class="value">Ahad, 3 Mei 2026 | 10:00 Pagi (sama)</div>
+            </div>
+        </div>
+
+        <!-- Kiraan Hari & Aturcara + MUSIC PLAYER -->
+        <div id="section-countdown" class="section" data-aos="fade-up">
+            <div class="section-title">Kiraan Hari</div>
+            <div class="countdown">
+                <div class="cd-item"><span class="cd-number" id="days">0</span>
+                    <div class="cd-label">Hari</div>
+                </div>
+                <div class="cd-item"><span class="cd-number" id="hours">0</span>
+                    <div class="cd-label">Jam</div>
+                </div>
+                <div class="cd-item"><span class="cd-number" id="minutes">0</span>
+                    <div class="cd-label">Minit</div>
+                </div>
+                <div class="cd-item"><span class="cd-number" id="seconds">0</span>
+                    <div class="cd-label">Saat</div>
+                </div>
+            </div>
+            <div class="section-title" style="margin-top: 0.8rem;">Aturcara Majlis</div>
+            <div class="schedule-list">
+                <div class="schedule-item"><span>Kehadiran Tetamu</span><span>11:00 Pagi</span></div>
+                <div class="schedule-item"><span>Ketibaan Pengantin</span><span>12:00 Tengahari</span></div>
+                <div class="schedule-item"><span>Makan Beradab</span><span>12:30 Tengahari</span></div>
+                <div class="schedule-item"><span>Majlis Bersurai</span><span>4:00 Petang</span></div>
+            </div>
+
+            <!-- MUSIC PLAYER WITH SONG SELECTION -->
+            <div class="music-player">
+                <div class="song-selector">
+                    <button class="song-btn active" data-song="0" data-start="0">🎵 Lagu 1 - Perfect</button>
+                    <button class="song-btn" data-song="1" data-start="55">🎵 Lagu 2 - A Bergema Sampai
+                        Selamanya</button>
+                    <button class="song-btn" data-song="2" data-start="0">🎵 Lagu 3 - Sampai Ke Hari Tua</button>
+                </div>
+                <audio id="bgMusic" controls loop style="width:100%; border-radius:30px;">
+                    <source src="perfect.mp3" type="audio/mpeg">
+                </audio>
+                <div class="current-song" id="currentSongLabel">🎶 Sedang dimainkan: Perfect</div>
+            </div>
+        </div>
+
+        <!-- Ucapan & Kehadiran -->
+        <div id="section-rsvp" class="section" data-aos="fade-up">
+            <div class="section-title">Ucapan & Kehadiran</div>
+            <div class="tab-row">
+                <button class="tab-btn active" onclick="switchTab('ucapan')">UCAPAN & DOA</button>
+                <button class="tab-btn" onclick="switchTab('hadir')">SAHKAN KEHADIRAN</button>
+            </div>
+            <div class="tab-panel active" id="tabUcapan">
+                <div class="arab" style="font-size: 1rem; text-align: center;">بَارَكَ اللَّهُ لَكُمَا</div>
+                <div class="latin" style="text-align: center; margin-bottom: 0.8rem; font-size:0.7rem;">Semoga Allah
+                    memberkati</div>
+                <div class="ucapan-list" id="ucapanList">
+                    <div style="text-align:center;padding:0.8rem;">Memuatkan ucapan...</div>
+                </div>
+                <div style="margin-top: 0.8rem;">
+                    <div class="form-group"><label style="font-size:0.75rem;">Nama Anda</label><input type="text"
+                            id="ucapanNama" placeholder="Nama penuh"></div>
+                    <div class="form-group"><label style="font-size:0.75rem;">Ucapan & Doa</label><textarea
+                            id="ucapanText" rows="2" placeholder="Tulis ucapan dan doa restu anda..."></textarea></div>
+                    <button class="submit-btn" id="btnUcapan">✦ HANTAR UCAPAN ✦</button>
+                    <div class="status-msg" id="statusUcapan" style="text-align:center;"></div>
+                </div>
+            </div>
+            <div class="tab-panel" id="tabHadir">
+                <div class="stats">
+                    <div class="stat-box"><span class="stat-number" id="attTotal">0</span>
+                        <div class="stat-label">Jumlah</div>
+                    </div>
+                    <div class="stat-box"><span class="stat-number" id="attYes">0</span>
+                        <div class="stat-label">Hadir</div>
+                    </div>
+                    <div class="stat-box"><span class="stat-number" id="attPax">0</span>
+                        <div class="stat-label">Orang</div>
+                    </div>
+                </div>
+                <div class="form-group"><label style="font-size:0.75rem;">Nama Penuh</label><input type="text"
+                        id="hadirNama" placeholder="Nama anda"></div>
+                <div class="form-group"><label style="font-size:0.75rem;">No. Telefon</label><input type="tel"
+                        id="hadirTel" placeholder="012-3456789"></div>
+                <div class="form-group"><label style="font-size:0.75rem;">Bilangan Tetamu</label><input type="number"
+                        id="hadirBil" min="0" max="20" value="1"></div>
+                <div class="form-group"><label style="font-size:0.75rem;">Status</label><select id="hadirStatus">
+                        <option value="hadir">Insya-Allah Hadir</option>
+                        <option value="tidak">Tidak Dapat Hadir</option>
+                    </select></div>
+                <div class="form-group"><label style="font-size:0.75rem;">Catatan</label><input type="text"
+                        id="hadirNote" placeholder="Contoh: Alhamdulillah, akan datang"></div>
+                <button class="submit-btn" id="btnHadir">✦ SAHKAN KEHADIRAN ✦</button>
+                <div class="status-msg" id="statusHadir" style="text-align:center;"></div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu
+            sendiri." (Ar-Rum: 21)
+        </div>
+
+        <!-- BOTTOM NAVIGATION -->
+        <div class="bottom-nav" id="bottomNav">
+            <div class="nav-icon" data-section="hero"><i class="fas fa-home"></i><span>Utama</span></div>
+            <div class="nav-icon" data-section="details"><i class="fas fa-info-circle"></i><span>Butiran</span></div>
+            <div class="nav-icon" data-section="countdown"><i class="fas fa-hourglass-half"></i><span>Kiraan</span>
+            </div>
+            <div class="nav-icon" data-section="rsvp"><i class="fas fa-comment"></i><span>Ucapan</span></div>
         </div>
     </div>
 
-    <div class="footer-note">
-        "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri." (Ar-Rum: 21)
+    <!-- Auto-scroll indicator -->
+    <div class="auto-scroll-indicator" id="autoScrollIndicator">
+        <i class="fas fa-arrow-down"></i> Auto scroll (lambat)
     </div>
 
-    <!-- BOTTOM NAVIGATION -->
-    <div class="bottom-nav" id="bottomNav">
-        <div class="nav-icon" data-section="hero"><i class="fas fa-home"></i><span>Utama</span></div>
-        <div class="nav-icon" data-section="details"><i class="fas fa-info-circle"></i><span>Butiran</span></div>
-        <div class="nav-icon" data-section="countdown"><i class="fas fa-hourglass-half"></i><span>Kiraan</span></div>
-        <div class="nav-icon" data-section="rsvp"><i class="fas fa-comment"></i><span>Ucapan</span></div>
-    </div>
-</div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const API_URL = 'https://script.google.com/macros/s/AKfycbwEk28S6GjgpfJQcWtjcLad1Muo9WaD6hL32I1xX2lXu8JGkbykn5GfUgapm-1KY5h5/exec';
 
-<!-- Auto-scroll indicator -->
-<div class="auto-scroll-indicator" id="autoScrollIndicator">
-    <i class="fas fa-arrow-down"></i> Auto scroll (lambat)
-</div>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-    const API_URL = 'https://script.google.com/macros/s/AKfycbwEk28S6GjgpfJQcWtjcLad1Muo9WaD6hL32I1xX2lXu8JGkbykn5GfUgapm-1KY5h5/exec';
-
-    document.getElementById('bukaBtn').onclick = () => {
-        document.getElementById('splash').classList.add('hide');
-        document.getElementById('mainCard').classList.add('show');
-        const audio = document.getElementById('bgMusic');
-        if(audio) audio.play().catch(e=>console.log('Auto-play blocked'));
-        createFloatingHearts();
-        AOS.refresh();
-        startSlowContinuousScroll();
-    };
-    
-    function createFloatingHearts() {
-        setInterval(() => {
-            const heart = document.createElement('div');
-            heart.className = 'floating-heart';
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + '%';
-            heart.style.fontSize = (Math.random() * 12 + 10) + 'px';
-            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
-            document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 4000);
-        }, 1500);
-    }
-    
-    // Slow continuous scroll to bottom + infinite loop
-    let scrollAnimationId = null;
-    let isAutoScrolling = true;
-    let scrollIndicator = document.getElementById('autoScrollIndicator');
-    let scrollStep = 1.2;
-    
-    function startSlowContinuousScroll() {
-        if (scrollAnimationId) cancelAnimationFrame(scrollAnimationId);
-        isAutoScrolling = true;
-        scrollIndicator.innerHTML = `<i class="fas fa-arrow-down"></i> Auto scroll (lambat)`;
-        scrollIndicator.style.background = "rgba(198, 164, 63, 0.9)";
-        
-        function smoothScroll() {
-            if (!isAutoScrolling) return;
-            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-            let currentY = window.scrollY;
-            if (currentY >= maxScroll - 5) {
-                window.scrollTo({ top: 0, behavior: 'auto' });
-                setTimeout(() => {
-                    if (isAutoScrolling) scrollAnimationId = requestAnimationFrame(smoothScroll);
-                }, 200);
-                return;
-            }
-            let nextY = Math.min(currentY + scrollStep, maxScroll);
-            window.scrollTo({ top: nextY, behavior: 'auto' });
-            updateActiveNavByScroll();
-            scrollAnimationId = requestAnimationFrame(smoothScroll);
-        }
-        setTimeout(() => { if (isAutoScrolling) scrollAnimationId = requestAnimationFrame(smoothScroll); }, 1500);
-    }
-    
-    function stopAutoScroll() {
-        if (scrollAnimationId) { cancelAnimationFrame(scrollAnimationId); scrollAnimationId = null; }
-        isAutoScrolling = false;
-        if(scrollIndicator) { scrollIndicator.innerHTML = `<i class="fas fa-pause"></i> Auto berhenti (klik untuk aktif)`, scrollIndicator.style.background = "#A8896E"; }
-    }
-    function resumeAutoScroll() { if (!isAutoScrolling) { isAutoScrolling = true; startSlowContinuousScroll(); } }
-    if(scrollIndicator) scrollIndicator.addEventListener('click', () => { isAutoScrolling ? stopAutoScroll() : resumeAutoScroll(); });
-    
-    function updateActiveNavByScroll() {
-        const sections = [
-            { id: 'hero', element: document.querySelector('.hero') },
-            { id: 'details', element: document.getElementById('section-details') },
-            { id: 'countdown', element: document.getElementById('section-countdown') },
-            { id: 'rsvp', element: document.getElementById('section-rsvp') }
+        // ============ MUSIC PLAYER WITH SONG SELECTION ============
+        const songs = [
+            { name: "Perfect - Ed Sheeran", file: "perfect.mp3", startTime: 0 },
+            { name: "Bergema Sampai Selamanya - Nadhif Basalamah", file: "nadhif.mp3", startTime: 50 },
+            { name: "Sampai Ke Hari Tua - Aizat Amdan", file: "aizat.mp3", startTime: 30 }
         ];
-        let activeId = 'hero';
-        for (let i = sections.length - 1; i >= 0; i--) {
-            if (sections[i].element && sections[i].element.getBoundingClientRect().top <= 150) { activeId = sections[i].id; break; }
+
+        let currentSongIndex = 0;
+        const audio = document.getElementById('bgMusic');
+        const songBtns = document.querySelectorAll('.song-btn');
+        const currentSongLabel = document.getElementById('currentSongLabel');
+
+        function changeSong(index) {
+            currentSongIndex = index;
+            const song = songs[index];
+
+            // Update audio source
+            audio.src = song.file;
+            audio.load();
+
+            // Set start time
+            audio.addEventListener('loadedmetadata', function onLoad() {
+                audio.currentTime = song.startTime;
+                audio.removeEventListener('loadedmetadata', onLoad);
+            });
+
+            // Update active button styling
+            songBtns.forEach((btn, i) => {
+                if (i === index) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Update label
+            currentSongLabel.innerHTML = `🎶 Sedang dimainkan: ${song.name}`;
+
+            // Play if auto-scroll is active (or user can click play)
+            if (isAutoScrolling) {
+                audio.play().catch(e => console.log('Auto-play needs user interaction'));
+            }
         }
-        document.querySelectorAll('.nav-icon').forEach(icon => { icon.classList.remove('active'); if (icon.getAttribute('data-section') === activeId) icon.classList.add('active'); });
-    }
-    
-    function scrollToSectionManually(sectionId) {
-        if(isAutoScrolling) stopAutoScroll();
-        let target = null;
-        if (sectionId === 'hero') target = document.querySelector('.hero');
-        else if (sectionId === 'details') target = document.getElementById('section-details');
-        else if (sectionId === 'countdown') target = document.getElementById('section-countdown');
-        else if (sectionId === 'rsvp') target = document.getElementById('section-rsvp');
-        if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); setTimeout(updateActiveNavByScroll, 300); }
-    }
-    document.querySelectorAll('.nav-icon').forEach(icon => { icon.addEventListener('click', (e) => { e.preventDefault(); scrollToSectionManually(icon.getAttribute('data-section')); }); });
-    window.addEventListener('wheel', () => { if(isAutoScrolling) stopAutoScroll(); });
-    window.addEventListener('touchstart', () => { if(isAutoScrolling) stopAutoScroll(); });
-    
-    // Countdown to 3 May 2026
-    const weddingDate = new Date('2026-05-03T11:00:00');
-    function updateCountdown() {
-        const diff = weddingDate - new Date();
-        if(diff <= 0) { ['days','hours','minutes','seconds'].forEach(id=>document.getElementById(id).textContent='0'); return; }
-        document.getElementById('days').textContent = Math.floor(diff / 86400000);
-        document.getElementById('hours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
-        document.getElementById('minutes').textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
-        document.getElementById('seconds').textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
-    }
-    updateCountdown(); setInterval(updateCountdown, 1000);
-    
-    function switchTab(tab) {
-        document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-        document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-        if(tab === 'ucapan') { document.getElementById('tabUcapan').classList.add('active'); document.querySelector('.tab-btn:first-child').classList.add('active'); } 
-        else { document.getElementById('tabHadir').classList.add('active'); document.querySelector('.tab-btn:last-child').classList.add('active'); loadAttendanceStats(); }
-    }
-    window.switchTab = switchTab;
-    
-    async function loadUcapan() {
-        const container = document.getElementById('ucapanList');
-        try {
-            const res = await fetch(`${API_URL}?type=ucapan`);
-            const data = await res.json();
-            if(!data || data.length === 0) { container.innerHTML = '<div style="text-align:center;padding:0.8rem;">✨ Belum ada ucapan ✨</div>'; return; }
-            container.innerHTML = data.map(item => `<div class="ucapan-card"><div style="font-weight:600;font-size:0.8rem;">${escapeHtml(item.nama)}</div><div style="font-size:0.75rem;">${escapeHtml(item.ucapan)}</div></div>`).join('');
-        } catch(e) { container.innerHTML = '<div style="text-align:center;padding:0.8rem;color:#C62828;">Gagal memuatkan ucapan.</div>'; }
-    }
-    async function submitUcapan() {
-        const nama = document.getElementById('ucapanNama').value.trim(), ucapan = document.getElementById('ucapanText').value.trim(), statusEl = document.getElementById('statusUcapan');
-        if(!nama || !ucapan) return setStatus(statusEl, 'Sila isi nama dan ucapan', 'err');
-        setStatus(statusEl, 'Menghantar...', 'loading');
-        try {
-            const formData = new URLSearchParams(); formData.append('type', 'ucapan'); formData.append('nama', nama); formData.append('ucapan', ucapan);
-            const res = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: formData });
-            const result = await res.json();
-            if(result.status === 'ok') { setStatus(statusEl, 'Ucapan berjaya dihantar! Terima kasih ✦', 'ok'); document.getElementById('ucapanNama').value = ''; document.getElementById('ucapanText').value = ''; loadUcapan(); } 
-            else throw new Error();
-        } catch(e) { setStatus(statusEl, 'Gagal. Cuba lagi.', 'err'); }
-    }
-    async function loadAttendanceStats() { try { const res = await fetch(`${API_URL}?type=attendance`); const data = await res.json(); document.getElementById('attTotal').textContent = data.totalHadir || 0; document.getElementById('attYes').textContent = data.totalHadir || 0; document.getElementById('attPax').textContent = data.totalPax || 0; } catch(e) {} }
-    async function submitKehadiran() {
-        const nama = document.getElementById('hadirNama').value.trim(), telefon = document.getElementById('hadirTel').value.trim(), bilangan = document.getElementById('hadirBil').value, status = document.getElementById('hadirStatus').value, note = document.getElementById('hadirNote').value, statusEl = document.getElementById('statusHadir');
-        if(!nama) return setStatus(statusEl, 'Masukkan nama', 'err');
-        setStatus(statusEl, 'Menghantar...', 'loading');
-        try {
-            const formData = new URLSearchParams(); formData.append('type', 'attendance'); formData.append('nama', nama); formData.append('telefon', telefon); formData.append('bilangan', parseInt(bilangan) || 1); formData.append('status', status); formData.append('note', note);
-            const res = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: formData });
-            const result = await res.json();
-            if(result.status === 'ok') { const msg = status === 'hadir' ? 'Kehadiran disahkan ✦' : 'Terima kasih atas makluman.'; setStatus(statusEl, msg, 'ok'); document.getElementById('hadirNama').value = ''; document.getElementById('hadirTel').value = ''; document.getElementById('hadirNote').value = ''; loadAttendanceStats(); } 
-            else throw new Error();
-        } catch(e) { setStatus(statusEl, 'Gagal. Cuba lagi.', 'err'); }
-    }
-    function setStatus(el, msg, type) { if(!el) return; el.textContent = msg; el.className = `status-msg status-${type}`; if(type === 'ok') setTimeout(() => { if(el.textContent === msg) el.textContent = ''; }, 4000); }
-    function escapeHtml(str) { return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;'); }
-    document.getElementById('btnUcapan').onclick = submitUcapan;
-    document.getElementById('btnHadir').onclick = submitKehadiran;
-    
-    const swiper = new Swiper('.mySwiper', { loop: true, autoplay: { delay: 3000, disableOnInteraction: false }, pagination: { el: '.swiper-pagination', clickable: true }, navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' } });
-    AOS.init({ once: true, offset: 20 });
-    loadUcapan(); loadAttendanceStats();
-</script>
+
+        // Add click handlers to song buttons
+        songBtns.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                changeSong(index);
+                audio.play().catch(e => console.log('Play failed'));
+            });
+        });
+
+        // Handle loop - restart at specified start time
+        audio.addEventListener('timeupdate', function () {
+            const song = songs[currentSongIndex];
+            if (song && audio.duration && audio.currentTime > audio.duration - 1.5) {
+                audio.currentTime = song.startTime;
+            }
+        });
+
+        // Splash screen
+        document.getElementById('bukaBtn').onclick = () => {
+            document.getElementById('splash').classList.add('hide');
+            document.getElementById('mainCard').classList.add('show');
+
+            // Set initial song and start time
+            const initialSong = songs[0];
+            audio.src = initialSong.file;
+            audio.load();
+            audio.addEventListener('loadedmetadata', function onLoad() {
+                audio.currentTime = initialSong.startTime;
+                audio.removeEventListener('loadedmetadata', onLoad);
+                audio.play().catch(e => console.log('Auto-play blocked'));
+            });
+
+            createFloatingHearts();
+            AOS.refresh();
+            startSlowContinuousScroll();
+        };
+
+        function createFloatingHearts() {
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.fontSize = (Math.random() * 12 + 10) + 'px';
+                heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 4000);
+            }, 1500);
+        }
+
+        // Slow continuous scroll
+        let scrollAnimationId = null;
+        let isAutoScrolling = true;
+        let scrollIndicator = document.getElementById('autoScrollIndicator');
+        let scrollStep = 1.2;
+
+        function startSlowContinuousScroll() {
+            if (scrollAnimationId) cancelAnimationFrame(scrollAnimationId);
+            isAutoScrolling = true;
+            scrollIndicator.innerHTML = `<i class="fas fa-arrow-down"></i> Auto scroll (lambat)`;
+            scrollIndicator.style.background = "rgba(198, 164, 63, 0.9)";
+
+            function smoothScroll() {
+                if (!isAutoScrolling) return;
+                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                let currentY = window.scrollY;
+                if (currentY >= maxScroll - 5) {
+                    window.scrollTo({ top: 0, behavior: 'auto' });
+                    setTimeout(() => {
+                        if (isAutoScrolling) scrollAnimationId = requestAnimationFrame(smoothScroll);
+                    }, 200);
+                    return;
+                }
+                let nextY = Math.min(currentY + scrollStep, maxScroll);
+                window.scrollTo({ top: nextY, behavior: 'auto' });
+                updateActiveNavByScroll();
+                scrollAnimationId = requestAnimationFrame(smoothScroll);
+            }
+            setTimeout(() => { if (isAutoScrolling) scrollAnimationId = requestAnimationFrame(smoothScroll); }, 1500);
+        }
+
+        function stopAutoScroll() {
+            if (scrollAnimationId) { cancelAnimationFrame(scrollAnimationId); scrollAnimationId = null; }
+            isAutoScrolling = false;
+            if (scrollIndicator) { scrollIndicator.innerHTML = `<i class="fas fa-pause"></i> Auto berhenti (klik untuk aktif)`, scrollIndicator.style.background = "#A8896E"; }
+        }
+        function resumeAutoScroll() { if (!isAutoScrolling) { isAutoScrolling = true; startSlowContinuousScroll(); } }
+        if (scrollIndicator) scrollIndicator.addEventListener('click', () => { isAutoScrolling ? stopAutoScroll() : resumeAutoScroll(); });
+
+        function updateActiveNavByScroll() {
+            const sections = [
+                { id: 'hero', element: document.querySelector('.hero') },
+                { id: 'details', element: document.getElementById('section-details') },
+                { id: 'countdown', element: document.getElementById('section-countdown') },
+                { id: 'rsvp', element: document.getElementById('section-rsvp') }
+            ];
+            let activeId = 'hero';
+            for (let i = sections.length - 1; i >= 0; i--) {
+                if (sections[i].element && sections[i].element.getBoundingClientRect().top <= 150) { activeId = sections[i].id; break; }
+            }
+            document.querySelectorAll('.nav-icon').forEach(icon => { icon.classList.remove('active'); if (icon.getAttribute('data-section') === activeId) icon.classList.add('active'); });
+        }
+
+        function scrollToSectionManually(sectionId) {
+            if (isAutoScrolling) stopAutoScroll();
+            let target = null;
+            if (sectionId === 'hero') target = document.querySelector('.hero');
+            else if (sectionId === 'details') target = document.getElementById('section-details');
+            else if (sectionId === 'countdown') target = document.getElementById('section-countdown');
+            else if (sectionId === 'rsvp') target = document.getElementById('section-rsvp');
+            if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); setTimeout(updateActiveNavByScroll, 300); }
+        }
+        document.querySelectorAll('.nav-icon').forEach(icon => { icon.addEventListener('click', (e) => { e.preventDefault(); scrollToSectionManually(icon.getAttribute('data-section')); }); });
+        window.addEventListener('wheel', () => { if (isAutoScrolling) stopAutoScroll(); });
+        window.addEventListener('touchstart', () => { if (isAutoScrolling) stopAutoScroll(); });
+
+        // Countdown
+        const weddingDate = new Date('2026-05-03T11:00:00');
+        function updateCountdown() {
+            const diff = weddingDate - new Date();
+            if (diff <= 0) { ['days', 'hours', 'minutes', 'seconds'].forEach(id => document.getElementById(id).textContent = '0'); return; }
+            document.getElementById('days').textContent = Math.floor(diff / 86400000);
+            document.getElementById('hours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+        }
+        updateCountdown(); setInterval(updateCountdown, 1000);
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            if (tab === 'ucapan') { document.getElementById('tabUcapan').classList.add('active'); document.querySelector('.tab-btn:first-child').classList.add('active'); }
+            else { document.getElementById('tabHadir').classList.add('active'); document.querySelector('.tab-btn:last-child').classList.add('active'); loadAttendanceStats(); }
+        }
+        window.switchTab = switchTab;
+
+        async function loadUcapan() {
+            const container = document.getElementById('ucapanList');
+            try {
+                const res = await fetch(`${API_URL}?type=ucapan`);
+                const data = await res.json();
+                if (!data || data.length === 0) { container.innerHTML = '<div style="text-align:center;padding:0.8rem;">✨ Belum ada ucapan ✨</div>'; return; }
+                container.innerHTML = data.map(item => `<div class="ucapan-card"><div style="font-weight:600;font-size:0.8rem;">${escapeHtml(item.nama)}</div><div style="font-size:0.75rem;">${escapeHtml(item.ucapan)}</div></div>`).join('');
+            } catch (e) { container.innerHTML = '<div style="text-align:center;padding:0.8rem;color:#C62828;">Gagal memuatkan ucapan.</div>'; }
+        }
+        async function submitUcapan() {
+            const nama = document.getElementById('ucapanNama').value.trim(), ucapan = document.getElementById('ucapanText').value.trim(), statusEl = document.getElementById('statusUcapan');
+            if (!nama || !ucapan) return setStatus(statusEl, 'Sila isi nama dan ucapan', 'err');
+            setStatus(statusEl, 'Menghantar...', 'loading');
+            try {
+                const formData = new URLSearchParams(); formData.append('type', 'ucapan'); formData.append('nama', nama); formData.append('ucapan', ucapan);
+                const res = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: formData });
+                const result = await res.json();
+                if (result.status === 'ok') { setStatus(statusEl, 'Ucapan berjaya dihantar! Terima kasih ✦', 'ok'); document.getElementById('ucapanNama').value = ''; document.getElementById('ucapanText').value = ''; loadUcapan(); }
+                else throw new Error();
+            } catch (e) { setStatus(statusEl, 'Gagal. Cuba lagi.', 'err'); }
+        }
+        async function loadAttendanceStats() { try { const res = await fetch(`${API_URL}?type=attendance`); const data = await res.json(); document.getElementById('attTotal').textContent = data.totalHadir || 0; document.getElementById('attYes').textContent = data.totalHadir || 0; document.getElementById('attPax').textContent = data.totalPax || 0; } catch (e) { } }
+        async function submitKehadiran() {
+            const nama = document.getElementById('hadirNama').value.trim(), telefon = document.getElementById('hadirTel').value.trim(), bilangan = document.getElementById('hadirBil').value, status = document.getElementById('hadirStatus').value, note = document.getElementById('hadirNote').value, statusEl = document.getElementById('statusHadir');
+            if (!nama) return setStatus(statusEl, 'Masukkan nama', 'err');
+            setStatus(statusEl, 'Menghantar...', 'loading');
+            try {
+                const formData = new URLSearchParams(); formData.append('type', 'attendance'); formData.append('nama', nama); formData.append('telefon', telefon); formData.append('bilangan', parseInt(bilangan) || 1); formData.append('status', status); formData.append('note', note);
+                const res = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: formData });
+                const result = await res.json();
+                if (result.status === 'ok') { const msg = status === 'hadir' ? 'Kehadiran disahkan ✦' : 'Terima kasih atas makluman.'; setStatus(statusEl, msg, 'ok'); document.getElementById('hadirNama').value = ''; document.getElementById('hadirTel').value = ''; document.getElementById('hadirNote').value = ''; loadAttendanceStats(); }
+                else throw new Error();
+            } catch (e) { setStatus(statusEl, 'Gagal. Cuba lagi.', 'err'); }
+        }
+        function setStatus(el, msg, type) { if (!el) return; el.textContent = msg; el.className = `status-msg status-${type}`; if (type === 'ok') setTimeout(() => { if (el.textContent === msg) el.textContent = ''; }, 4000); }
+        function escapeHtml(str) { return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;'); }
+        document.getElementById('btnUcapan').onclick = submitUcapan;
+        document.getElementById('btnHadir').onclick = submitKehadiran;
+
+        const swiper = new Swiper('.mySwiper', { loop: true, autoplay: { delay: 3000, disableOnInteraction: false }, pagination: { el: '.swiper-pagination', clickable: true }, navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' } });
+        AOS.init({ once: true, offset: 20 });
+        loadUcapan(); loadAttendanceStats();
+    </script>
 </body>
+
 </html>
