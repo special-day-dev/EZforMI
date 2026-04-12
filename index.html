@@ -741,18 +741,18 @@
         </div>
         
         <!-- MUSIC PLAYER -->
-        <div class="music-player">
-            <div class="song-selector">
-                <button class="song-btn" data-song="0" data-start="30">🎵 Hingga Ke Hari Tua</button>
-                <button class="song-btn active" data-song="1" data-start="0">🎵 Perfect</button>
-                <button class="song-btn" data-song="2" data-start="50">🎵 Bergema Sampai Selamanya</button>
-            </div>
-            <audio id="bgMusic" controls loop style="width:100%; border-radius:30px;">
-                <source src="aizat" type="audio/mpeg">
-            </audio>
-            <div class="current-song" id="currentSongLabel">🎶 Sedang dimainkan: Sampai Ke Hari Tua</div>
-        </div>
+       <!-- MUSIC PLAYER -->
+<div class="music-player">
+    <div class="song-selector">
+        <button class="song-btn active" data-song="0" data-start="30">🎵 Hingga Ke Hari Tua</button>
+        <button class="song-btn" data-song="1" data-start="0">🎵 Perfect</button>
+        <button class="song-btn" data-song="2" data-start="50">🎵 Bergema Sampai Selamanya</button>
     </div>
+    <audio id="bgMusic" controls loop style="width:100%; border-radius:30px;">
+        <source src="aizat.mp3" type="audio/mpeg">
+    </audio>
+    <div class="current-song" id="currentSongLabel">🎶 Sedang dimainkan: Hingga Ke Hari Tua</div>
+</div>
 
     <!-- Ucapan & Kehadiran -->
     <div id="section-rsvp" class="section" data-aos="fade-up">
@@ -811,67 +811,84 @@
     const API_URL = 'https://script.google.com/macros/s/AKfycbwEk28S6GjgpfJQcWtjcLad1Muo9WaD6hL32I1xX2lXu8JGkbykn5GfUgapm-1KY5h5/exec';
 
     // MUSIC PLAYER
-    const songs = [
-        { name: "Hingga Ke Hari Tua - Aizat Amdan", file: "aizat.mp3", startTime: 0 },
-        { name: "Perfect - Ed Sheeran", file: "perfect.mp3", startTime: 0 },
-        { name: "Bergema Sampai Selamanya - Nadhif Basalamah", file: "nadhif.mp3", startTime: 50 },
-    ];
+    // MUSIC PLAYER
+const songs = [
+    { name: "Hingga Ke Hari Tua - Aizat Amdan", file: "aizat.mp3", startTime: 30 },
+    { name: "Perfect - Ed Sheeran", file: "perfect.mp3", startTime: 0 },
+    { name: "Bergema Sampai Selamanya - Nadhif Basalamah", file: "nadhif.mp3", startTime: 50 }
+];
+
+let currentSongIndex = 0;
+const audio = document.getElementById('bgMusic');
+const songBtns = document.querySelectorAll('.song-btn');
+const currentSongLabel = document.getElementById('currentSongLabel');
+
+function changeSong(index) {
+    currentSongIndex = index;
+    const song = songs[index];
+    const wasPlaying = !audio.paused;
     
-    let currentSongIndex = 0;
-    const audio = document.getElementById('bgMusic');
-    const songBtns = document.querySelectorAll('.song-btn');
-    const currentSongLabel = document.getElementById('currentSongLabel');
+    audio.src = song.file;
+    audio.load();
     
-    function changeSong(index) {
-        currentSongIndex = index;
-        const song = songs[index];
-        audio.src = song.file;
-        audio.load();
-        audio.addEventListener('loadedmetadata', function onLoad() {
-            audio.currentTime = song.startTime;
-            audio.removeEventListener('loadedmetadata', onLoad);
-        });
-        songBtns.forEach((btn, i) => {
-            btn.classList.toggle('active', i === index);
-        });
-        currentSongLabel.innerHTML = `🎶 Sedang dimainkan: ${song.name}`;
-        if (isAutoScrolling) {
-            audio.play().catch(e => console.log('Auto-play needs interaction'));
+    audio.addEventListener('loadedmetadata', function onLoad() {
+        audio.currentTime = song.startTime;
+        audio.removeEventListener('loadedmetadata', onLoad);
+        if (wasPlaying || isAutoScrolling) {
+            audio.play().catch(e => console.log('Play needs interaction'));
         }
+    });
+    
+    songBtns.forEach((btn, i) => {
+        if (i === index) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+    
+    currentSongLabel.innerHTML = `🎶 Sedang dimainkan: ${song.name}`;
+}
+
+songBtns.forEach((btn, index) => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        changeSong(index);
+    });
+});
+
+audio.addEventListener('timeupdate', function() {
+    const song = songs[currentSongIndex];
+    if (song && audio.duration && !isNaN(audio.duration) && audio.currentTime > audio.duration - 1.5) {
+        audio.currentTime = song.startTime;
     }
-    
-    songBtns.forEach((btn, index) => {
-        btn.addEventListener('click', () => {
-            changeSong(index);
-            audio.play().catch(e => console.log('Play failed'));
-        });
-    });
-    
-    audio.addEventListener('timeupdate', function() {
-        const song = songs[currentSongIndex];
-        if (song && audio.duration && audio.currentTime > audio.duration - 1.5) {
-            audio.currentTime = song.startTime;
-        }
-    });
+});
+
+audio.addEventListener('error', function() {
+    console.log('Error loading audio file');
+    currentSongLabel.innerHTML = `⚠️ Lagu tidak ditemui. Pastikan file ${songs[currentSongIndex].file} ada.`;
+});
 
     // Splash screen
-    document.getElementById('bukaBtn').onclick = () => {
-        document.getElementById('splash').classList.add('hide');
-        document.getElementById('mainCard').classList.add('show');
-        
-        const initialSong = songs[0];
-        audio.src = initialSong.file;
-        audio.load();
-        audio.addEventListener('loadedmetadata', function onLoad() {
-            audio.currentTime = initialSong.startTime;
-            audio.removeEventListener('loadedmetadata', onLoad);
-            audio.play().catch(e => console.log('Auto-play blocked'));
-        });
-        
-        createFloatingHearts();
-        AOS.refresh();
-        startSlowContinuousScroll();
-    };
+ // Splash screen
+document.getElementById('bukaBtn').onclick = () => {
+    document.getElementById('splash').classList.add('hide');
+    document.getElementById('mainCard').classList.add('show');
+    
+    // Set initial song
+    const initialSong = songs[0];
+    audio.src = initialSong.file;
+    audio.load();
+    audio.addEventListener('loadedmetadata', function onLoad() {
+        audio.currentTime = initialSong.startTime;
+        audio.removeEventListener('loadedmetadata', onLoad);
+        audio.play().catch(e => console.log('Auto-play blocked by browser'));
+    });
+    
+    createFloatingHearts();
+    AOS.refresh();
+    startSlowContinuousScroll();
+};
     
     function createFloatingHearts() {
         setInterval(() => {
