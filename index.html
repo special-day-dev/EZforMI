@@ -1,5 +1,3 @@
-Here is an enhanced HTML document for a wedding invitation website with pre-wedding photos, animations, and interactive features.
-```html
 <!DOCTYPE html>
 <html lang="ms">
 <head>
@@ -116,7 +114,7 @@ Here is an enhanced HTML document for a wedding invitation website with pre-wedd
             transform: scale(1.03);
         }
 
-        /* Main Card */
+        /* Main Card Container */
         .card {
             max-width: 600px;
             margin: 0 auto;
@@ -128,6 +126,7 @@ Here is an enhanced HTML document for a wedding invitation website with pre-wedd
             z-index: 2;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
             animation: slideUpFade 0.6s ease;
+            padding-bottom: 70px; /* Space for fixed bottom nav */
         }
         .card.show {
             display: block;
@@ -198,16 +197,13 @@ Here is an enhanced HTML document for a wedding invitation website with pre-wedd
             width: 38px;
             height: 38px;
         }
-        .swiper-button-next:after, .swiper-button-prev:after {
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
 
         /* Section */
         .section {
             padding: 1.8rem 1.5rem;
             border-bottom: 1px solid #F0E2C5;
             transition: background 0.3s;
+            scroll-margin-top: 20px;
         }
         .section:hover {
             background: rgba(198, 164, 63, 0.02);
@@ -429,32 +425,56 @@ Here is an enhanced HTML document for a wedding invitation website with pre-wedd
             font-weight: 700;
             color: #C6A43F;
         }
+        
+        /* BOTTOM NAVIGATION - ALWAYS VISIBLE & STICKY */
         .bottom-nav {
-            background: #FFFFFF;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
             padding: 0.8rem 1.5rem;
             display: flex;
             justify-content: space-around;
-            border-top: 1px solid #F0E2C5;
-            position: sticky;
-            bottom: 0;
-            z-index: 10;
+            border-top: 1px solid rgba(198, 164, 63, 0.3);
+            border-radius: 30px 30px 0 0;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+            z-index: 100;
+            transition: all 0.2s;
         }
         .nav-icon {
-            font-size: 1.3rem;
-            color: #A0A0A0;
+            font-size: 1.4rem;
+            color: #A8896E;
             cursor: pointer;
             transition: 0.2s;
+            text-align: center;
+            flex: 1;
+            padding: 0.2rem;
         }
-        .nav-icon:hover {
+        .nav-icon i {
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+        .nav-icon span {
+            font-size: 0.65rem;
+            font-weight: 500;
+            display: block;
+        }
+        .nav-icon:hover, .nav-icon.active {
             color: #C6A43F;
-            transform: scale(1.1);
+            transform: translateY(-3px);
         }
+        
         .footer-note {
             text-align: center;
             font-size: 0.7rem;
             color: #A0A0A0;
             padding: 1rem;
             background: #FDF8F0;
+            margin-bottom: 70px;
         }
         audio {
             width: 100%;
@@ -481,6 +501,18 @@ Here is an enhanced HTML document for a wedding invitation website with pre-wedd
         @keyframes floatUp {
             0% { transform: translateY(0) scale(0.6); opacity: 0.8; }
             100% { transform: translateY(-200px) scale(1.2); opacity: 0; }
+        }
+        /* Auto-scroll indicator */
+        .scroll-hint {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #C6A43F;
+            margin-top: 0.5rem;
+            animation: bounce 1.2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(5px); }
         }
     </style>
 </head>
@@ -516,10 +548,10 @@ Here is an enhanced HTML document for a wedding invitation website with pre-wedd
         <div class="section-title">Galeri Pre-Wedding</div>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Couple+Photo+1" alt="Pre-wedding 1"></div>
-                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Couple+Photo+2" alt="Pre-wedding 2"></div>
-                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Couple+Photo+3" alt="Pre-wedding 3"></div>
-                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Couple+Photo+4" alt="Pre-wedding 4"></div>
+                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Pre-Wedding+1" alt="Pre-wedding 1"></div>
+                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Pre-Wedding+2" alt="Pre-wedding 2"></div>
+                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Pre-Wedding+3" alt="Pre-wedding 3"></div>
+                <div class="swiper-slide"><img src="https://placehold.co/600x400/F9EED7/C6A43F?text=Pre-Wedding+4" alt="Pre-wedding 4"></div>
             </div>
             <div class="swiper-pagination"></div>
             <div class="swiper-button-next"></div>
@@ -529,7 +561,7 @@ Here is an enhanced HTML document for a wedding invitation website with pre-wedd
     </div>
 
     <!-- Butiran Majlis -->
-    <div class="section" data-aos="fade-up" data-aos-duration="700">
+    <div id="section-details" class="section" data-aos="fade-up" data-aos-duration="700">
         <div class="section-title">Butiran Majlis</div>
         <div class="grid-2">
             <div class="info-card"><i class="far fa-calendar-alt"></i><div class="label">Tarikh</div><div class="value">Ahad<br>3 Mei 2026</div></div>
@@ -551,7 +583,7 @@ Here is an enhanced HTML document for a wedding invitation website with pre-wedd
     </div>
 
     <!-- Kiraan Hari & Aturcara -->
-    <div class="section" data-aos="fade-up" data-aos-duration="700">
+    <div id="section-countdown" class="section" data-aos="fade-up" data-aos-duration="700">
         <div class="section-title">Kiraan Hari</div>
         <div class="countdown">
             <div class="cd-item"><span class="cd-number" id="days">0</span><div class="cd-label">Hari</div></div>
@@ -573,7 +605,7 @@ Here is an enhanced HTML document for a wedding invitation website with pre-wedd
     </div>
 
     <!-- Ucapan & Kehadiran -->
-    <div class="section" data-aos="fade-up" data-aos-duration="700">
+    <div id="section-rsvp" class="section" data-aos="fade-up" data-aos-duration="700">
         <div class="section-title">Ucapan & Kehadiran</div>
         <div class="tab-row">
             <button class="tab-btn active" onclick="switchTab('ucapan')">UCAPAN & DOA</button>
@@ -610,11 +642,12 @@ Here is an enhanced HTML document for a wedding invitation website with pre-wedd
         "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri." (Ar-Rum: 21)
     </div>
 
-    <div class="bottom-nav">
-        <span class="nav-icon" onclick="scrollToTop()"><i class="fas fa-home"></i></span>
-        <span class="nav-icon" onclick="scrollToSection(0)"><i class="fas fa-info-circle"></i></span>
-        <span class="nav-icon" onclick="scrollToSection(1)"><i class="fas fa-hourglass-half"></i></span>
-        <span class="nav-icon" onclick="scrollToSection(2)"><i class="fas fa-comment"></i></span>
+    <!-- BOTTOM NAVIGATION - ALWAYS VISIBLE -->
+    <div class="bottom-nav" id="bottomNav">
+        <div class="nav-icon" data-section="hero"><i class="fas fa-home"></i><span>Utama</span></div>
+        <div class="nav-icon" data-section="details"><i class="fas fa-info-circle"></i><span>Butiran</span></div>
+        <div class="nav-icon" data-section="countdown"><i class="fas fa-hourglass-half"></i><span>Kiraan</span></div>
+        <div class="nav-icon" data-section="rsvp"><i class="fas fa-comment"></i><span>Ucapan</span></div>
     </div>
 </div>
 
@@ -631,6 +664,8 @@ Here is an enhanced HTML document for a wedding invitation website with pre-wedd
         if(audio) audio.play().catch(e=>console.log('Auto-play blocked'));
         createFloatingHearts();
         AOS.refresh();
+        // start auto-scroll after card opens
+        startAutoScroll();
     };
     
     function createFloatingHearts() {
@@ -646,12 +681,77 @@ Here is an enhanced HTML document for a wedding invitation website with pre-wedd
         }, 1200);
     }
     
-    // Scroll functions
-    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-    function scrollToSection(index) {
-        const sections = document.querySelectorAll('.section');
-        if(sections[index]) sections[index].scrollIntoView({ behavior: 'smooth' });
+    // AUTO-SCROLL FUNCTIONALITY
+    let autoScrollInterval = null;
+    let isAutoScrolling = true;
+    
+    function startAutoScroll() {
+        if (autoScrollInterval) clearInterval(autoScrollInterval);
+        const sections = [
+            { id: 'hero', element: document.querySelector('.hero'), offset: 0 },
+            { id: 'details', element: document.getElementById('section-details'), offset: 20 },
+            { id: 'countdown', element: document.getElementById('section-countdown'), offset: 20 },
+            { id: 'rsvp', element: document.getElementById('section-rsvp'), offset: 20 }
+        ];
+        let currentIndex = 0;
+        
+        autoScrollInterval = setInterval(() => {
+            if (!isAutoScrolling) return;
+            // scroll to next section
+            if (sections[currentIndex] && sections[currentIndex].element) {
+                sections[currentIndex].element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                updateActiveNav(sections[currentIndex].id);
+            }
+            currentIndex = (currentIndex + 1) % sections.length;
+        }, 5000); // auto-scroll every 5 seconds
     }
+    
+    // Stop auto-scroll when user interacts with scroll or click
+    function stopAutoScroll() {
+        if (autoScrollInterval) {
+            clearInterval(autoScrollInterval);
+            autoScrollInterval = null;
+            isAutoScrolling = false;
+        }
+    }
+    
+    // Update active nav icon based on visible section
+    function updateActiveNav(sectionId) {
+        document.querySelectorAll('.nav-icon').forEach(icon => {
+            icon.classList.remove('active');
+            if (icon.getAttribute('data-section') === sectionId) {
+                icon.classList.add('active');
+            }
+        });
+    }
+    
+    // Scroll to specific section with user interaction (stops auto-scroll)
+    function scrollToSection(sectionId) {
+        stopAutoScroll();
+        let targetElement = null;
+        if (sectionId === 'hero') targetElement = document.querySelector('.hero');
+        else if (sectionId === 'details') targetElement = document.getElementById('section-details');
+        else if (sectionId === 'countdown') targetElement = document.getElementById('section-countdown');
+        else if (sectionId === 'rsvp') targetElement = document.getElementById('section-rsvp');
+        
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            updateActiveNav(sectionId);
+        }
+    }
+    
+    // Event listeners for nav icons
+    document.querySelectorAll('.nav-icon').forEach(icon => {
+        icon.addEventListener('click', (e) => {
+            e.preventDefault();
+            const section = icon.getAttribute('data-section');
+            scrollToSection(section);
+        });
+    });
+    
+    // Detect user scroll to stop auto-scroll permanently
+    window.addEventListener('wheel', () => { if(isAutoScrolling) stopAutoScroll(); });
+    window.addEventListener('touchstart', () => { if(isAutoScrolling) stopAutoScroll(); });
     
     // Countdown
     const weddingDate = new Date('2026-05-03T11:00:00');
@@ -766,7 +866,6 @@ Here is an enhanced HTML document for a wedding invitation website with pre-wedd
         speed: 800,
     });
     
-    // AOS init
     AOS.init({ once: true, offset: 30 });
     
     loadUcapan();
@@ -774,4 +873,3 @@ Here is an enhanced HTML document for a wedding invitation website with pre-wedd
 </script>
 </body>
 </html>
-```
