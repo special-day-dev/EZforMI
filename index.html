@@ -860,7 +860,7 @@
     function startSlowContinuousScroll() {
         if (scrollAnimationId) cancelAnimationFrame(scrollAnimationId);
         isAutoScrolling = true;
-        scrollIndicator.innerHTML = `<i class="fas fa-arrow-down"></i> Auto scroll (lambat)`;
+        scrollIndicator.innerHTML = `<i class="fas fa-arrow-down"></i> Auto scroll`;
         scrollIndicator.style.background = "rgba(198, 164, 63, 0.9)";
         
         function smoothScroll() {
